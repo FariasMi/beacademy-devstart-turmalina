@@ -50,14 +50,14 @@ projeto Devstart byAcademy  squad turmalina
 
 ## :sparkles: Features ##
 
-:heavy_check_mark: Mysql;\
-:heavy_check_mark: cadastrar produtos;\
-:heavy_check_mark: checkout;\
+:heavy_check_mark: Banco de dados Mysql;\
+:heavy_check_mark: Cadastro de Produtos;\
+:heavy_check_mark: Cadastro de Pedidos;\
 :heavy_check_mark: Api paylivre;\
 :heavy_check_mark: tesets unitarios pra regras de negocio;\
 :heavy_check_mark: checkout;
 
-link das regras do projeto [aqui](https://www.notion.so/Projeto-Empresarial-1f862eb50aac4249aa8b3fb0f641557f)
+link das regras do projeto [aqui](./check-list.md)
 
 ## :rocket: Technologies ##
 
