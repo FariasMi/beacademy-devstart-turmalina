@@ -1,4 +1,4 @@
-## Indíce
+## Índice
 
 -   [Descrição Projeto Empresarial](#projeto-empresarial)
 -   [Requisitos](#requisitos)
