@@ -1,21 +1,33 @@
+## Indíce
+
+-   [Descrição Projeto Empresarial](#projeto-empresarial)
+-   [Requisitos](#requisitos)
+-   [Cadastro de Usuários](#cadastro-de-usuários)
+-   [Cadastro de Produtos](#cadastro-de-produtos)
+-   [Cadastro de Pedidos](#cadastro-de-pedidos)
+-   [Checkout](#checkout)
+-   [Atualização de status do Pagamento](#atualização-de-status-do-pagamento)
+
 # Projeto Empresarial
+
 Criar um **CHECKOUT** para uma **PLATAFORMA** de **VENDAS ONLINE**
 
 Este checkout será criado em PHP, utilizando a Framework Laravel
 
-*O contexto deste projeto é mínimo no que diz respeito a operações de e-commerce e foca na efetivação do pagamento, portanto questões como logística, descontos e afins não serão levados em consideração na descrição e execução do projeto.*
+_O contexto deste projeto é mínimo no que diz respeito a operações de e-commerce e foca na efetivação do pagamento, portanto questões como logística, descontos e afins não serão levados em consideração na descrição e execução do projeto._
 
 ## Requisitos
 
-- [ ] Banco de dados Mysql
-- [ ] Autenticação e Cadastro de Usuários
-- [ ] Cadastro de Produtos
-- [ ] Cadastro de Pedidos
-- [ ] Checkout
-- [ ] Api de **Paylivre** para efetivação dos pagamentos (anexar documentação)
-- [ ] Criação de testes unitários para todas as regras de negócio
+-   [ ] Banco de dados Mysql
 
-## Regras de negocio -------------------------------
+-   [ ] Autenticação e Cadastro de Usuários
+-   [ ] Cadastro de Produtos
+-   [ ] Cadastro de Pedidos
+-   [ ] Checkout
+-   [ ] Api de **Paylivre** para efetivação dos pagamentos (anexar documentação)
+-   [ ] Criação de testes unitários para todas as regras de negócio
+
+## Regras de negócio -------------------------------
 
 ### Cadastro de Usuários
 
@@ -23,23 +35,23 @@ Deverá possuir 2 tipos de cadastro. Um “Administrador” que será responsáv
 
 Os dados básicos de cadastro de usuários são:
 
-- [ ] Nome
-- [ ] E-mail
-- [ ] Telefone
-- [ ] Endereço
-- [ ] Data de nascimento
-- [ ] CPF
+-   [ ] Nome
+-   [ ] E-mail
+-   [ ] Telefone
+-   [ ] Endereço
+-   [ ] Data de nascimento
+-   [ ] CPF
 
 ### Cadastro de Produtos
 
 Para o cadastro de produtos, deverá ser possível cadastrar as seguintes informações
 
-- [ ] Nome do produto
-- [ ] Descrição do produto
-- [ ] Quantidade
-- [ ] Preço de custo
-- [ ] Preço de venda
-- [ ] Foto principal
+-   [ ] Nome do produto
+-   [ ] Descrição do produto
+-   [ ] Quantidade
+-   [ ] Preço de custo
+-   [ ] Preço de venda
+-   [ ] Foto principal
 
 ### Cadastro de Pedidos
 
@@ -55,5 +67,5 @@ O sistema deverá possuir uma rotina para monitorar os pagamentos que estiverem 
 
 **Notificações**
 
-- [ ] O cliente recebe um e-mail toda vez que um novo pedido é realizado
-- [ ] O cliente recebe um e-mail toda vez que algum pedido sofre alteração de status
+-   [ ] O cliente recebe um e-mail toda vez que um novo pedido é realizado
+-   [ ] O cliente recebe um e-mail toda vez que algum pedido sofre alteração de status
