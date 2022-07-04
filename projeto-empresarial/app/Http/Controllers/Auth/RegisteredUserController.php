@@ -33,17 +33,29 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request)
     {
+        // Remove caracteres que não sejam números
+        $request->merge([
+            'phone' => preg_replace("/\D/", '', $request->phone),
+        ]);
+
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
+            'last_name' => "required|string|max:255",
+            'cpf' => "required|cpf|unique:users",
+            'phone' => "required|phone_br_ddd|unique:users",
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
         $user = User::create([
             'name' => $request->name,
+            'last_name' => $request->last_name,
+            'cpf' => $request->cpf,
+            'phone' => $request->phone,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+
 
         event(new Registered($user));
 
