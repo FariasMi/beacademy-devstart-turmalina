@@ -68,6 +68,8 @@ Tecnologias usadas no projeto
 - [PHP](https://www.php.net/)
 - [Mysql](https://www.mysql.com/)
 - [Laravel](https://laravel.com/)
+- [Breeze](https://github.com/laravel/breeze)
+- [validator-docs](https://github.com/geekcom/validator-docs)
 
 ## :white_check_mark: Requirements ##
 
