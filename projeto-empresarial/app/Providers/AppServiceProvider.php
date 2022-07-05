@@ -4,15 +4,13 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-class AppServiceProvider extends ServiceProvider
-{
+class AppServiceProvider extends ServiceProvider {
     /**
      * Register any application services.
      *
      * @return void
      */
-    public function register()
-    {
+    public function register() {
         //
     }
 
@@ -21,8 +19,19 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
-    {
-        //
+    public function boot() {
+        $rules = [
+            'phone_br_ddd' => \App\Validators\Rules\PhoneBrDddValidator::class,
+        ];
+
+        foreach ($rules as $name => $class) {
+            $rule = new $class;
+
+            $extension = static function ($attribute, $value) use ($rule) {
+                return $rule->passes($attribute, $value);
+            };
+
+            $this->app['validator']->extend($name, $extension, $rule->message());
+        }
     }
 }
