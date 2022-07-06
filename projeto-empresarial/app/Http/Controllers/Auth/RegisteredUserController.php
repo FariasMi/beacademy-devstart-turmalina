@@ -50,6 +50,7 @@ class RegisteredUserController extends Controller {
             'cpf' => $request->cpf,
             'phone' => $request->phone,
             'email' => $request->email,
+            'is_admin' => $request->type_user == 'admin' ? true : false,
             'password' => Hash::make($request->password),
         ]);
 
@@ -60,6 +61,7 @@ class RegisteredUserController extends Controller {
             Auth::login($user);
         }
 
+        // return $request;
         return redirect(RouteServiceProvider::HOME);
     }
 }

@@ -21,7 +21,7 @@ class UserController extends Controller {
     public function dashboard() {
         $users = User::all();
 
-        return view('adminDashboard', compact('users'));
+        return view('admin.dashboard', compact('users'));
     }
 
     public function edit($id) {
@@ -30,7 +30,7 @@ class UserController extends Controller {
     }
 
     public function create() {
-        return view('userCreate');
+        return view('admin.create');
     }
 
     public function update(StoreUpdateUserFormRequest $request, $id) {
