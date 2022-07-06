@@ -12,6 +12,14 @@ tr th:nth-child(1) {
   border-radius: 0.625rem 0 0 0.625rem;
 }
 
+.btn-success {
+  @apply py-2 px-2 bg-green-500 no-underline rounded-lg text-white font-sans font-semibold text-sm;
+}
+
+.btn-success:hover {
+  @apply text-white bg-green-400;
+}
+
 .btn-alert {
   @apply py-2 px-2 bg-orange-500 no-underline rounded-lg text-white font-sans font-semibold text-sm;
 }
