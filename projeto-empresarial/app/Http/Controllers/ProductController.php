@@ -7,10 +7,16 @@ use App\Models\Product;
 
 class ProductController extends Controller
 {
+
+    public function __construct(Product $product)
+    {
+        $this->model = $product;
+    }
+
     public function index()
     {
-        $products =Product::all();
+        $products = Product::all();
 
-        return $products;
+        return view('products.index', compact('products'));
     }
 }

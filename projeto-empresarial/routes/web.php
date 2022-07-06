@@ -1,9 +1,9 @@
 <?php
 
+use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
+use Inertia\Inertia;
 use App\Http\Controllers\ProductController;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -16,12 +16,21 @@ use App\Http\Controllers\ProductController;
 |
 */
 
-Route::get('/', [UserController::class, 'index'])->name('index');
-Route::get('/dashboard', [UserController::class, 'dashboard'])->middleware(['auth', 'is_admin'])->name('dashboard');
+Route::get('/', function () {
+    return Inertia::render('Welcome', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
+});
+
+Route::get('/dashboard', function () {
+    return Inertia::render('Dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
 
 // ROTAS DO CRUD PRODUTOS 
-
 Route::get('/produtos',[ProductController::class, 'index'])->name('products.index');
 
-
-require __DIR__ . '/auth.php';
+require __DIR__.'/auth.php';
