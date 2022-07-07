@@ -7,7 +7,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Requests\StoreUpdateUserFormRequest;
 use App\Models\User;
-use GuzzleHttp\Psr7\Request;
+use Illuminate\Http\Request;
 
 class UserController extends Controller {
     public function __construct(User $user) {
@@ -18,8 +18,12 @@ class UserController extends Controller {
         return view('index');
     }
 
-    public function dashboard() {
-        $users = User::all();
+    public function dashboard(Request $request) {
+        // $users = User::paginate(5);
+
+        $users = $this->model->getUsers(
+            $request->search ?? ""
+        );
 
         return view('admin.dashboard', compact('users'));
     }

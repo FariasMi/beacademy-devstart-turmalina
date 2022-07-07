@@ -13,11 +13,11 @@ tr th:nth-child(1) {
 }
 
 .btn-success {
-  @apply py-2 px-2 bg-green-500 no-underline rounded-lg text-white font-sans font-semibold text-sm;
+  @apply py-2 px-2 bg-green-600 no-underline rounded-lg text-white font-sans font-semibold text-sm;
 }
 
 .btn-success:hover {
-  @apply text-white bg-green-400;
+  @apply text-white bg-green-500;
 }
 
 .btn-alert {
