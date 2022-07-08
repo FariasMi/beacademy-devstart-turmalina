@@ -121,7 +121,5 @@
 
 
 </div>
-@section('script')
-<script src="projeto-empresarial/resources/js/carrossel.js"></script>
-@endsection
+
 @endsection
