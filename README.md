@@ -26,11 +26,11 @@
 
 <!-- Status -->
 
-<!-- <h4 align="center"> 
+<h4 align="center"> 
 	🚧  Beacademy Devstar Turmalina 🚀 Under construction...  🚧
 </h4> 
 
-<hr> -->
+<hr>
 
 <p align="center">
   <a href="#dart-about">About</a> &#xa0; | &#xa0; 
@@ -79,10 +79,31 @@ Para executar este projeto e muito importante ter instalado [Git](https://git-sc
 
 ```bash
 # Clone this project
-$ git clone https://github.com/FariasMi/beacademy-devstar-turmalina
+git clone https://github.com/FariasMi/beacademy-devstar-turmalina
 
 # Access
-$ cd beacademy-devstar-turmalina
+cd beacademy-devstar-turmalina/projeto-empresarial
+
+# install dependeces
+composer install
+# ------------------
+npm i
+
+# create a tables in your database
+php artisan migrate
+
+# run project
+npm run dev
+# ------------------
+php artisan serve
+
+# view to project 
+# access http://localhost:8000
+
+# your crete user admin
+# - create user common
+# - access your SGBD in project
+# - access table users and modify is_admin for 1
 
 ```
 
@@ -90,6 +111,11 @@ $ cd beacademy-devstar-turmalina
 
 Este projeto esta sobre esta [LICENSE](LICENSE.md).
 
+## Made by 
+[Leandro Cavalcante,](https://github.com/LeoScripts) <br>
+[Alexandre,](https://github.com/Alexandre-A11) <br>
+[Douglas,](https://github.com/) <br>
+[Michele](https://github.com/)
 
 &#xa0;
 
