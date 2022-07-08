@@ -28,34 +28,26 @@
         </thead>
         <tbody>
             @foreach ($users as $user)
-            <tr class="bg-white hover:bg-gray-300">
-                <td class="text-center">{{ $user->name }}</td>
-                <td class="text-center">{{ $user->last_name }}</td>
-                <td class="text-center">{{ $user->cpf }}</td>
-                <td class="text-center">{{ $user->phone }}</td>
-                <td class="text-center">{{ $user->email }}</td>
-                <td class="text-center">{{ date("d/m/Y | H:i",strtotime($user->created_at)) }}</td>
-                <td class="text-center">{{ date("d/m/Y | H:i", strtotime($user->updated_at)) }}</td>
-                <td class="text-center">
-                    @if ($user->is_admin)
-                    <span class="text-green-500">Sim</span>
-                    @else
-                    <span class="text-red-500">Não</span>
-                    @endif
-                </td>
-                <td class="text-center p-3">
-                    <a href="{{ route('user.edit', $user->id) }}" class="btn-alert mr-1">
-                        Editar
-                    </a>
+            @include ("components.link-show")
+            <td class="text-center">{{ $user->name }}</td>
+            <td class="text-center">{{ $user->last_name }}</td>
+            <td class="text-center">{{ $user->cpf }}</td>
+            <td class="text-center">{{ $user->phone }}</td>
+            <td class="text-center">{{ $user->email }}</td>
+            <td class="text-center">{{ date("d/m/Y | H:i",strtotime($user->created_at)) }}</td>
+            <td class="text-center">{{ date("d/m/Y | H:i", strtotime($user->updated_at)) }}</td>
+            <td class="text-center">
+                @if ($user->is_admin)
+                <span class="text-green-500">Sim</span>
+                @else
+                <span class="text-red-500">Não</span>
+                @endif
+            </td>
+            <td class="text-center p-3">
+                @include("components.btn-edit")
 
-                    <form action="{{ route('user.delete', $user->id) }}" method="POST" class="inline">
-                        @csrf
-                        @method("DELETE")
-                        <button type="submit" class="btn-danger">
-                            Deletar
-                        </button>
-                    </form>
-
+                @include("components.btn-delete")
+            </td>
             </tr>
             @endforeach
         </tbody>

@@ -18,8 +18,17 @@ class UserController extends Controller {
         return view('index');
     }
 
+    public function show($id) {
+        if (!$user = $this->model->find($id)) {
+            abort(404);
+        }
+
+        $addresses = $user->addresses()->get();
+
+        return view('show-user', compact('user', 'addresses'));
+    }
+
     public function dashboard(Request $request) {
-        // $users = User::paginate(5);
 
         $users = $this->model->getUsers(
             $request->search ?? ""
@@ -30,7 +39,7 @@ class UserController extends Controller {
 
     public function edit($id) {
         $user = User::find($id);
-        return view('userEdit', compact('user'));
+        return view('user-edit', compact('user'));
     }
 
     public function create() {
@@ -40,6 +49,7 @@ class UserController extends Controller {
     public function update(StoreUpdateUserFormRequest $request, $id) {
         $user = User::find($id);
         $data = $request->except("password", "password_confirmation");
+        $data['is_admin'] = $request->type_user == 'admin' ? true : false;
 
         if ($request->has("password")) {
             $data['password'] = bcrypt($request->password);

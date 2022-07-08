@@ -1,0 +1,1 @@
+<tr onclick="window.location='{{ route('user.show', $user->id) }}'" class="table-row bg-white hover:bg-gray-300 cursor-pointer">
