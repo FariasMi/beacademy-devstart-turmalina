@@ -2,6 +2,6 @@
 @section("title", "Home")
 @section("main")
 
-Index
+<h1>Turmalina</h1>
 
 @endsection

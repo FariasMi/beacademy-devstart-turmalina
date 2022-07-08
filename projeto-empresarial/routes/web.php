@@ -2,7 +2,10 @@
 
 use App\Http\Controllers\Auth\RegisteredUserController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\{
+    UserController,
+    HomeController
+};
 
 
 /*
@@ -16,7 +19,7 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', [UserController::class, 'index'])->name('index');
+Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get('/user/create', [UserController::class, 'create'])->middleware(['auth', 'is_admin'])->name('user.create');
 Route::post('/user/create', [RegisteredUserController::class, 'store'])->middleware(['auth', 'is_admin'])->name('user.store');
 Route::put('/edit/{id}', [UserController::class, "update"])->name("user.update");
