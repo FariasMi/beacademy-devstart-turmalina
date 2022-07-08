@@ -39,7 +39,7 @@
   <a href="#white_check_mark-requisitos">Requisitos</a> &#xa0; | &#xa0;
   <a href="#checkered_flag-executar">Executar</a> &#xa0; | &#xa0;
   <a href="#memo-license">License</a> &#xa0; | &#xa0;
-  <a href="#shout-desenvolvedores" target="_blank">Author</a>
+  <a href="#memo-desenvolvedores" target="_blank">Author</a>
 </p>
 
 <br>
@@ -111,7 +111,7 @@ php artisan serve
 
 Este projeto esta sobre esta [LICENSE](LICENSE.md).
 
-## :shout: Desenvolvedores ##
+## :memo: Desenvolvedores ##
 [Leandro Cavalcante,](https://github.com/LeoScripts) <br>
 [Alexandre,](https://github.com/Alexandre-A11) <br>
 [Douglas,](https://github.com/) <br>
