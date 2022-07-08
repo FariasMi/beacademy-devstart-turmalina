@@ -24,13 +24,9 @@
   <img alt="Github stars" src="https://img.shields.io/github/stars/FariasMi/beacademy-devstar-turmalina?color=56BEB8" />
 </p>
 
-<!-- Status -->
-
 <h4 align="center"> 
-	🚧  Beacademy Devstart Turmalina 🚀 em construção...  🚧
+	🚧 em construção...  🚧
 </h4> 
-
-<hr>
 
 <p align="center">
   <a href="#dart-sobre">Sobre</a> &#xa0; | &#xa0; 

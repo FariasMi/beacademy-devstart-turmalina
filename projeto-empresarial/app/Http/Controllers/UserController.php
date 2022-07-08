@@ -14,10 +14,6 @@ class UserController extends Controller {
         $this->model = $user;
     }
 
-    public function index() {
-        return view('index');
-    }
-
     public function dashboard(Request $request) {
         // $users = User::paginate(5);
 
