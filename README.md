@@ -17,11 +17,11 @@
 
   <img alt="License" src="https://img.shields.io/github/license/FariasMi/beacademy-devstar-turmalina?color=56BEB8">
 
-  <!-- <img alt="Github issues" src="https://img.shields.io/github/issues/FariasMi/beacademy-devstar-turmalina?color=56BEB8" /> -->
+  <img alt="Github issues" src="https://img.shields.io/github/issues/FariasMi/beacademy-devstar-turmalina?color=56BEB8" />
 
-  <!-- <img alt="Github forks" src="https://img.shields.io/github/forks/FariasMi/beacademy-devstar-turmalina?color=56BEB8" /> -->
+  <img alt="Github forks" src="https://img.shields.io/github/forks/FariasMi/beacademy-devstar-turmalina?color=56BEB8" />
 
-  <!-- <img alt="Github stars" src="https://img.shields.io/github/stars/FariasMi/beacademy-devstar-turmalina?color=56BEB8" /> -->
+  <img alt="Github stars" src="https://img.shields.io/github/stars/FariasMi/beacademy-devstar-turmalina?color=56BEB8" />
 </p>
 
 <!-- Status -->
