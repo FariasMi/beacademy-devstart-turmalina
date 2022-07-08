@@ -26,25 +26,25 @@
 
 <!-- Status -->
 
-<!-- <h4 align="center"> 
-	🚧  Beacademy Devstar Turmalina 🚀 Under construction...  🚧
+<h4 align="center"> 
+	🚧  Beacademy Devstart Turmalina 🚀 em construção...  🚧
 </h4> 
 
-<hr> -->
+<hr>
 
 <p align="center">
-  <a href="#dart-about">About</a> &#xa0; | &#xa0; 
+  <a href="#dart-sobre">Sobre</a> &#xa0; | &#xa0; 
   <a href="#sparkles-features">Features</a> &#xa0; | &#xa0;
-  <a href="#rocket-technologies">Technologies</a> &#xa0; | &#xa0;
-  <a href="#white_check_mark-requirements">Requirements</a> &#xa0; | &#xa0;
-  <a href="#checkered_flag-starting">Starting</a> &#xa0; | &#xa0;
+  <a href="#rocket-tecnologias">Tecnologias</a> &#xa0; | &#xa0;
+  <a href="#white_check_mark-requisitos">Requisitos</a> &#xa0; | &#xa0;
+  <a href="#checkered_flag-executar">Executar</a> &#xa0; | &#xa0;
   <a href="#memo-license">License</a> &#xa0; | &#xa0;
-  <a href="https://github.com/FariasMi" target="_blank">Author</a>
+  <a href="#shout-desenvolvedores" target="_blank">Author</a>
 </p>
 
 <br>
 
-## :dart: About ##
+## :dart: Sobre ##
 
 projeto Devstart byAcademy  squad turmalina
 
@@ -61,7 +61,7 @@ e-commerce Papelaria Turmalina.
 
 link das regras do projeto [aqui](./check-list.md)
 
-## :rocket: Technologies ##
+## :rocket: Tecnologias ##
 
 Tecnologias usadas no projeto
 
@@ -71,18 +71,39 @@ Tecnologias usadas no projeto
 - [Breeze](https://github.com/laravel/breeze)
 - [validator-docs](https://github.com/geekcom/validator-docs)
 
-## :white_check_mark: Requirements ##
+## :white_check_mark: Requisitos ##
 
 Para executar este projeto e muito importante ter instalado [Git](https://git-scm.com) e [PHP](https://www.php.net/).
 
-## :checkered_flag: Starting ##
+## :checkered_flag: Executar ##
 
 ```bash
-# Clone this project
-$ git clone https://github.com/FariasMi/beacademy-devstar-turmalina
+# Clone do projeto
+git clone https://github.com/FariasMi/beacademy-devstart-turmalina
 
-# Access
-$ cd beacademy-devstar-turmalina
+# Acessando o projeto
+cd beacademy-devstart-turmalina/projeto-empresarial
+
+# instalar dependencias
+composer install
+# ------------------
+npm i
+
+# criar tabelas
+php artisan migrate
+
+# executar projeto
+npm run dev
+# ------------------
+php artisan serve
+
+# ver o projeto rodando
+# access http://localhost:8000
+
+# criar usuario admin
+# - crie um usuario comum
+# - abra seu SGBD acesse o projeto 
+# - abra a tabela de users e mude o campo is_admin para 1
 
 ```
 
@@ -90,7 +111,12 @@ $ cd beacademy-devstar-turmalina
 
 Este projeto esta sobre esta [LICENSE](LICENSE.md).
 
+## :shout: Desenvolvedores ##
+[Leandro Cavalcante,](https://github.com/LeoScripts) <br>
+[Alexandre,](https://github.com/Alexandre-A11) <br>
+[Douglas,](https://github.com/) <br>
+[Michele](https://github.com/)
 
 &#xa0;
 
-<a href="#top">Back to top</a>
+<a href="#top">Voltar ao top</a>
