@@ -13,11 +13,6 @@ class UserController extends Controller {
         $this->model = $user;
     }
 
-
-    public function index() {
-        return view('index');
-    }
-
     public function show($id) {
         if (!$user = $this->model->find($id)) {
             abort(404);
