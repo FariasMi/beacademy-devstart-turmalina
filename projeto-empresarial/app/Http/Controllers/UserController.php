@@ -13,6 +13,7 @@ class UserController extends Controller {
         $this->model = $user;
     }
 
+
     public function index() {
         return view('index');
     }
@@ -27,6 +28,8 @@ class UserController extends Controller {
 
         return view('show-user', compact('user', 'addresses'));
     }
+
+
 
     public function dashboard(Request $request) {
 
