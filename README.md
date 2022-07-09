@@ -1,12 +1,12 @@
 <div align="center" id="top"> 
-  <!-- <img src="./.github/app.gif" alt="Beacademy Devstar Turmalina" /> -->
+  <!-- <img src="./.github/app.gif" alt="Be Academy Devstart Turmalina" /> -->
 
   &#xa0;
 
   <!-- <a href="https://beacademydevstarturmalina.netlify.app">Demo</a> -->
 </div>
 
-<h1 align="center">Beacademy Devstar Turmalina</h1>
+<h1 align="center">Be Academy Devstart Turmalina</h1>
 
 <p align="center">
   <img alt="Github top language" src="https://img.shields.io/github/languages/top/FariasMi/beacademy-devstar-turmalina?color=56BEB8">
@@ -42,7 +42,7 @@
 
 ## :dart: Sobre ##
 
-projeto Devstart byAcademy  squad turmalina
+Projeto Devstart Be Academy, squad turmalina.
 
 e-commerce Papelaria Turmalina.
 
