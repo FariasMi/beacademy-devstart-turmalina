@@ -27,6 +27,7 @@ class StoreUpdateUserFormRequest extends FormRequest {
             'cpf' => "required|unique:users,cpf,{$this->id},id",
             'phone' => "required|phone_br_ddd|unique:users,phone,{$this->id},id",
             'email' => ['required', 'string', 'email', 'max:255', "unique:users,email,{$this->id},id"],
+
         ];
 
         if ($this->method() == 'PUT') {
