@@ -51,9 +51,9 @@ e-commerce Papelaria Turmalina.
 :heavy_check_mark: Banco de dados Mysql;\
 :heavy_check_mark: Cadastro de Produtos;\
 :heavy_check_mark: Cadastro de Pedidos;\
-:heavy_check_mark: Api paylivre;\
-:heavy_check_mark: tesets unitarios pra regras de negocio;\
-:heavy_check_mark: checkout;
+:heavy_check_mark: API PayLivre;\
+:heavy_check_mark: Testes unitários para regras de negócio;\
+:heavy_check_mark: Checkout;
 
 link das regras do projeto [aqui](./check-list.md)
 
@@ -66,6 +66,7 @@ Tecnologias usadas no projeto
 - [Laravel](https://laravel.com/)
 - [Breeze](https://github.com/laravel/breeze)
 - [validator-docs](https://github.com/geekcom/validator-docs)
+- [Tailwind UI](https://tailwindui.com/documentation)
 
 ## :white_check_mark: Requisitos ##
 
