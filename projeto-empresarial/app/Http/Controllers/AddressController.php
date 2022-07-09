@@ -29,4 +29,10 @@ class AddressController extends Controller {
 
         return redirect()->route('user.show', $user->id);
     }
+
+    public function delete($id) {
+        $address = $this->address->find($id);
+        $address->delete();
+        return redirect()->route('user.show', $address->user_id);
+    }
 }

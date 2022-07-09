@@ -11,6 +11,7 @@ use App\Http\Controllers\{
 
 Route::get('/address/create/{id}', [AddressController::class, 'create'])->middleware('auth', 'confirm_id')->name('address.create');
 Route::post('/address/create/{id}', [AddressController::class, 'store'])->middleware('auth', 'confirm_id')->name('address.store');
+Route::delete('/address/delete/{id}', [AddressController::class, 'delete'])->middleware('auth')->name('address.delete');
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 // Route::get('/', [UserController::class, 'index'])->name('index');
