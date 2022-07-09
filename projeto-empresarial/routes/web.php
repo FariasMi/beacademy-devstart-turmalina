@@ -8,12 +8,11 @@ use App\Http\Controllers\{
     HomeController
 };
 
+Route::get('/', [HomeController::class, 'index'])->name('home.index');
 
 Route::get('/address/create/{id}', [AddressController::class, 'create'])->middleware('auth', 'confirm_id')->name('address.create');
 Route::post('/address/create/{id}', [AddressController::class, 'store'])->middleware('auth', 'confirm_id')->name('address.store');
-
-Route::get('/', [HomeController::class, 'index'])->name('home.index');
-// Route::get('/', [UserController::class, 'index'])->name('index');
+Route::delete('/address/delete/{id}', [AddressController::class, 'delete'])->middleware('auth')->name('address.delete');
 
 Route::get('/user/create', [UserController::class, 'create'])->middleware(['auth', 'is_admin'])->name('user.create');
 Route::post('/user/create', [RegisteredUserController::class, 'store'])->middleware(['auth', 'is_admin'])->name('user.store');
