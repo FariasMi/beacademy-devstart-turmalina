@@ -15,6 +15,7 @@
     <table class="table-fixed border-separate border-spacing-y-3">
         <thead>
             <tr class="bg-white">
+                <th class="p-4">#ID</th>
                 <th class="p-4">Nome</th>
                 <th class="p-4">Sobrenome</th>
                 <th class="p-4">CPF</th>
@@ -29,6 +30,7 @@
         <tbody>
             @foreach ($users as $user)
             @include ("components.link-show")
+            <td class="text-center">{{ $user->id }}</td>
             <td class="text-center">{{ $user->name }}</td>
             <td class="text-center">{{ $user->last_name }}</td>
             <td class="text-center">{{ $user->cpf }}</td>

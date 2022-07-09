@@ -2,8 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-tr td:nth-child(n + 9),
-tr th:nth-child(n + 9) {
+tr td:nth-child(n + 10),
+tr th:nth-child(n + 10) {
   border-radius: 0 0.625rem 0.625rem 0;
 }
 

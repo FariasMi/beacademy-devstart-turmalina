@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AddressValidation;
 use App\Models\User;
 use App\Models\Address;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class AddressController extends Controller {
@@ -20,11 +20,7 @@ class AddressController extends Controller {
         return view('add-address', compact('id'));
     }
 
-    public function store(Request $request, $id) {
-        if (!Auth::user()->is_admin && Auth::user()->id != $id) {
-            abort(404);
-        }
-
+    public function store(AddressValidation $request, $id) {
         $data = $request->all();
         $data['user_id'] = $id;
         $user = $this->user->find($id);

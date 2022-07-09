@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 // use Illuminate\Http\Request;
 
-use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Requests\StoreUpdateUserFormRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -24,6 +23,7 @@ class UserController extends Controller {
         }
 
         $addresses = $user->addresses()->get();
+
 
         return view('show-user', compact('user', 'addresses'));
     }
