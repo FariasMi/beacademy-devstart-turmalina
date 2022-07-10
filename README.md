@@ -55,7 +55,7 @@ E-commerce Turmalina.
 :heavy_check_mark: Testes unitários para regras de negócio;\
 :heavy_check_mark: Checkout;
 
-link das [regras do projeto](./check-list.md)
+[Regras do projeto](./check-list.md)
 
 ## :rocket: Tecnologias ##
 
