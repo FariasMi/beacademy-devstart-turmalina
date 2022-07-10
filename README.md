@@ -110,9 +110,8 @@ Este projeto esta sobre esta [LICENSE](LICENSE.md).
 
 ## :memo: Desenvolvedores ##
 [Alexandre,](https://github.com/Alexandre-A11) <br>
-[Douglas,](https://github.com/) <br>
+[Douglas,](https://github.com/DouglasReiz) <br>
 [Leandro Cavalcante,](https://github.com/LeoScripts) <br>
-[Michele](https://github.com/)
 
 &#xa0;
 
