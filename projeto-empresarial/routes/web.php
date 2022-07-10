@@ -5,7 +5,8 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
     UserController,
-    HomeController
+    HomeController,
+    ProductController
 };
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
@@ -21,5 +22,12 @@ Route::put('/edit/{id}', [UserController::class, "update"])->name("user.update")
 Route::get('/edit/{id}', [UserController::class, 'edit'])->name('user.edit');
 Route::get('/dashboard', [UserController::class, 'dashboard'])->middleware(['auth', 'is_admin'])->name('dashboard');
 Route::delete('/delete/{id}', [UserController::class, 'delete'])->middleware(['auth', 'is_admin'])->name('user.delete');
+
+
+Route::get('/products', [ProductController::class, 'index'])->middleware(['auth', 'is_admin'])->name('product.index');
+Route::delete('product/{id}',[ProductController::class, 'delete'])->name('product.delete');
+Route::get('/product/create', [ProductController::class, 'create'])->name('product.create');
+Route::post('/product', [ProductController::class, 'store'])->name('product.store');
+Route::get('/product', [ProductController::class, 'search'])->name('search');
 
 require __DIR__ . '/auth.php';
