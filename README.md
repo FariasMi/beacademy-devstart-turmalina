@@ -44,7 +44,7 @@
 
 Projeto Devstart Be Academy, squad turmalina.
 
-e-commerce Papelaria Turmalina.
+E-commerce Turmalina.
 
 ## :sparkles: Features ##
 
@@ -55,22 +55,22 @@ e-commerce Papelaria Turmalina.
 :heavy_check_mark: Testes unitários para regras de negócio;\
 :heavy_check_mark: Checkout;
 
-link das regras do projeto [aqui](./check-list.md)
+link das [regras do projeto](./check-list.md)
 
 ## :rocket: Tecnologias ##
 
 Tecnologias usadas no projeto
 
 - [PHP](https://www.php.net/)
-- [Mysql](https://www.mysql.com/)
 - [Laravel](https://laravel.com/)
+- [Mysql](https://www.mysql.com/)
 - [Breeze](https://github.com/laravel/breeze)
-- [validator-docs](https://github.com/geekcom/validator-docs)
 - [Tailwind UI](https://tailwindui.com/documentation)
+- [validator-docs](https://github.com/geekcom/validator-docs)
 
 ## :white_check_mark: Requisitos ##
 
-Para executar este projeto e muito importante ter instalado [Git](https://git-scm.com) e [PHP](https://www.php.net/).
+Para executar este projeto é importante ter instalado [Git](https://git-scm.com) e [PHP](https://www.php.net/).
 
 ## :checkered_flag: Executar ##
 
@@ -109,9 +109,9 @@ php artisan serve
 Este projeto esta sobre esta [LICENSE](LICENSE.md).
 
 ## :memo: Desenvolvedores ##
-[Leandro Cavalcante,](https://github.com/LeoScripts) <br>
 [Alexandre,](https://github.com/Alexandre-A11) <br>
 [Douglas,](https://github.com/) <br>
+[Leandro Cavalcante,](https://github.com/LeoScripts) <br>
 [Michele](https://github.com/)
 
 &#xa0;
