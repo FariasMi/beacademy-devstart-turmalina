@@ -17,11 +17,6 @@
     <div class=" bg-gray-100">
         @include('layouts.navigation')
 
-        <!-- Page Heading -->
-        <header class="bg-white shadow">
-                @yield("header")
-        </header>
-
         <!-- Page Content -->
         <main>
             @yield("main")
@@ -33,10 +28,9 @@
         </x-slot>
 
         <footer class="flex justify-center p-8 mt-8  border-2">
-            <p> &copy;2022 turmalina todos os direitos reservados  </p>
+            <p> &copy;2022 turmalina todos os direitos reservados </p>
         </footer>
     </div>
 </body>
 
 </html>
-
