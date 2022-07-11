@@ -11,15 +11,30 @@
                 </div>
 
                 <!-- Navigation Links -->
-                @auth
-                @if (Auth::user()->is_admin)
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    @auth
+                    @if (Auth::user()->is_admin)
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Lista de Usuários') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('product.index')" :active="request()->routeIs('product.index')">
+                        {{ __('Lista de Produtos') }}
+                    </x-nav-link>
+                    @endif
+                    @endauth
+                    <x-nav-link>
+                        {{ __('Papelaria') }}
+                    </x-nav-link>
+                    <x-nav-link>
+                        {{ __('Cadernos') }}
+                    </x-nav-link>
+                    <x-nav-link>
+                        {{ __('Escrita') }}
+                    </x-nav-link>
+                    <x-nav-link>
+                        {{ __('Outros') }}
+                    </x-nav-link>
                 </div>
-                @endif
-                @endauth
             </div>
 
             <!-- Settings Dropdown -->
