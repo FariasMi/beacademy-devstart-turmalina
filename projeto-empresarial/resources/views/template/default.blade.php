@@ -21,11 +21,6 @@
         <main>
             @yield("main")
         </main>
-        <x-slot name="header">
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight hover:text-indigo-400 cursor-pointer">
-                {{ __('Lista de Usuários') }}
-            </h2>
-        </x-slot>
 
         <footer class="flex justify-center p-8 mt-8  border-2">
             <p> &copy;2022 turmalina todos os direitos reservados </p>

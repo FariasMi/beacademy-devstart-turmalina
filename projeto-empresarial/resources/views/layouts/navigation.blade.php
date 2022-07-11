@@ -22,18 +22,18 @@
                     </x-nav-link>
                     @endif
                     @endauth
-                    <x-nav-link>
+                    <x-nav-link-1 :href="route('store.index', $section='papelaria')" :active="request()->routeIs('store.index') && request()->route()->parameters['section'] == 'papelaria'">
                         {{ __('Papelaria') }}
-                    </x-nav-link>
-                    <x-nav-link>
+                    </x-nav-link-1>
+                    <x-nav-link-2 :href="route('store.index', $section='cadernos')" :active="request()->routeIs('store.index') && request()->route()->parameters['section'] == 'cadernos'">
                         {{ __('Cadernos') }}
-                    </x-nav-link>
-                    <x-nav-link>
+                    </x-nav-link-2>
+                    <x-nav-link-3 :href="route('store.index', $section='escrita')" :active="request()->routeIs('store.index') && request()->route()->parameters['section'] == 'escrita'">
                         {{ __('Escrita') }}
-                    </x-nav-link>
-                    <x-nav-link>
+                    </x-nav-link-3>
+                    <x-nav-link-4 :href="route('store.index', $section='outros')" :active="request()->routeIs('store.index') && request()->route()->parameters['section'] == 'outros'">
                         {{ __('Outros') }}
-                    </x-nav-link>
+                    </x-nav-link-4>
                 </div>
             </div>
 

@@ -6,7 +6,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
     UserController,
     HomeController,
-    ProductController
+    ProductController,
+    StoreController
 };
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
@@ -25,9 +26,11 @@ Route::delete('/delete/{id}', [UserController::class, 'delete'])->middleware(['a
 
 
 Route::get('/products', [ProductController::class, 'index'])->middleware(['auth', 'is_admin'])->name('product.index');
-Route::delete('product/{id}',[ProductController::class, 'delete'])->name('product.delete');
+Route::delete('product/{id}', [ProductController::class, 'delete'])->name('product.delete');
 Route::get('/product/create', [ProductController::class, 'create'])->name('product.create');
 Route::post('/product', [ProductController::class, 'store'])->name('product.store');
 Route::get('/product', [ProductController::class, 'search'])->name('search');
+
+Route::get('/store/{section}', [StoreController::class, 'index'])->name('store.index');
 
 require __DIR__ . '/auth.php';
