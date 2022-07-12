@@ -2,7 +2,7 @@
     <a href="#">
         <img class="p-6 rounded-t-lg w-64 invisible" src="https://flowbite.com/docs/images/products/product-1.png" alt="product image">
     </a>
-    <div class="px-5 pb-5 rounded-sm bg-slate-500">
+    <div class="px-5 pb-5 rounded-md bg-slate-500">
         <a href="#">
             <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">Descrição</h5>
         </a>
