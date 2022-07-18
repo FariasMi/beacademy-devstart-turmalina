@@ -41,9 +41,10 @@
             <td class="text-center">{{ date("d/m/Y | H:i", strtotime($product->updated_at)) }}</td>
             <td class="text-center">
 
-            <a href=" {{route('products.show', $product->id)}} ">Visualizar</a>
 
-
+            <a href="{{route('products.show', $product->id)}}" class="btn-success mr-1">
+                Visualizar
+            </a>
             </td>
 
             </tr>

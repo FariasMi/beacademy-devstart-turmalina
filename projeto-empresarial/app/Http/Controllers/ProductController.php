@@ -48,7 +48,7 @@ class ProductController extends Controller
         if(!$product = $this -> model -> find($id))
             abort(404);
 
-        return view('products.index', compact('product'));
+        return view('products.show', compact('product'));
     }
 
     public function edit($id)
@@ -67,6 +67,16 @@ class ProductController extends Controller
         $data = $request->only('name','quantity','price');
 
         $product->update($data);
+
+        return redirect()->route('product.index');
+    }
+
+    public function destroy($id)
+    {
+        if(!$products = $this->model->find($id))
+        return redirect()->route('users.index');
+    
+        $products->delete();
 
         return redirect()->route('product.index');
     }

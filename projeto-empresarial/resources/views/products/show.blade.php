@@ -36,7 +36,13 @@
             <a href="{{ route('product.edit', $product->id) }}" class="btn-alert mr-1">
                 Editar
             </a>
-            <a href="">Excluir</a>
+            <form action="{{ route('product.delete', $product->id) }}" method="POST" class="inline">
+                @csrf
+                @method("DELETE")
+                <button type="submit" class="btn-danger">
+                    Deletar
+                </button>
+            </form>
 
 
             </td>
