@@ -1,9 +1,8 @@
 @extends("template.default")
-<!-- @section("title", "Home") -->
+@section("title", "Home")
 @section("main")
 
-<!-- <h1 align="center">Turmalina</h1> -->
-
+<div class="h-96 mt-5 bg-slate-400">
     <div>
         <section>
             <div class="swiper mySwiper">
@@ -95,5 +94,4 @@
             </div>
         </div>
     </div>
-
 @endsection

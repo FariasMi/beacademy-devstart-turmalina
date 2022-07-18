@@ -38,7 +38,7 @@
             <div class="mt-4">
                 <x-label for="phone" :value="__('Telefone')" />
 
-                <x-input id="phone" value="{{ $user->cpf }}" class="block mt-1 w-full" type="text" name="phone" />
+                <x-input id="phone" value="{{ $user->phone }}" class="block mt-1 w-full" type="text" name="phone" />
             </div>
 
             <!-- Email Address -->
