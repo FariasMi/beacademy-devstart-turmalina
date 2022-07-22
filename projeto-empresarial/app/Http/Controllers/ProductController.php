@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
-use App\Models\User;
+use App\Http\Requests\StoreUpdateProductFormRequest;
+
 
 class ProductController extends Controller
 {
@@ -16,17 +17,15 @@ class ProductController extends Controller
     {
         $products = Product::all();
 
-        return view('products.show', compact('products'));
+        return view('products.index', compact('products'));
     }
-
-
 
     public function create() 
     {
         return view('products.create');
     }
     
-    public function store(Request $request)
+    public function store(StoreUpdateProductFormRequest $request)
     {
         $data = $request->all();
         
@@ -42,6 +41,44 @@ class ProductController extends Controller
         );
 
         return view('products.show', compact('products'));
+    }
+
+    public function show($id)
+    {
+        if(!$product = $this -> model -> find($id))
+            abort(404);
+
+        return view('products.show', compact('product'));
+    }
+
+    public function edit($id)
+    {
+        if(!$product = $this -> model -> find($id))
+            abort(404);
+
+        return view('products.edit', compact('product'));
+    }
+
+    public function update(StoreUpdateProductFormRequest $request, $id)
+    {
+        if(!$product = $this->model->find($id))
+            return redirect()->route('product.index');
+
+        $data = $request->only('name','quantity','price');
+
+        $product->update($data);
+
+        return redirect()->route('product.index');
+    }
+
+    public function destroy($id)
+    {
+        if(!$products = $this->model->find($id))
+        return redirect()->route('users.index');
+    
+        $products->delete();
+
+        return redirect()->route('product.index');
     }
 
 }
