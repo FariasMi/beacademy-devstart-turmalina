@@ -29,8 +29,6 @@ Route::get('/product/edit/{id}',[ProductController::class, 'edit'])->name('produ
 Route::put('/product/edit/{id}',[ProductController::class, 'update'])->name('product.update');
 Route::get('/products', [ProductController::class, 'index'])->middleware(['auth', 'is_admin'])->name('product.index');
 
-Route::delete('product/{id}', [ProductController::class, 'delete'])->name('product.delete');
-
 Route::get('/product/create', [ProductController::class, 'create'])->name('product.create');
 Route::post('/product', [ProductController::class, 'store'])->name('product.store');
 Route::get('/product', [ProductController::class, 'search'])->name('search');
