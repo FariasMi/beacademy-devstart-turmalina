@@ -13,7 +13,7 @@
         </form>
         <a href="{{ route( 'product.create') }}" class="btn-success mt-2 mb-2 mr-4 justify-self-end">Novo Produto</a>
     </div>
-    
+
     <table class="table-fixed border-separate border-spacing-y-3">
         <thead>
             <tr class="bg-white">
