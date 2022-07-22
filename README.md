@@ -1,12 +1,12 @@
 <div align="center" id="top"> 
-  <!-- <img src="./.github/app.gif" alt="Beacademy Devstar Turmalina" /> -->
+  <!-- <img src="./.github/app.gif" alt="Be Academy Devstart Turmalina" /> -->
 
   &#xa0;
 
   <!-- <a href="https://beacademydevstarturmalina.netlify.app">Demo</a> -->
 </div>
 
-<h1 align="center">Beacademy Devstar Turmalina</h1>
+<h1 align="center">Be Academy Devstart Turmalina</h1>
 
 <p align="center">
   <img alt="Github top language" src="https://img.shields.io/github/languages/top/FariasMi/beacademy-devstar-turmalina?color=56BEB8">
@@ -42,34 +42,35 @@
 
 ## :dart: Sobre ##
 
-projeto Devstart byAcademy  squad turmalina
+Projeto Devstart Be Academy, squad turmalina.
 
-e-commerce Papelaria Turmalina.
+E-commerce Turmalina.
 
 ## :sparkles: Features ##
 
 :heavy_check_mark: Banco de dados Mysql;\
 :heavy_check_mark: Cadastro de Produtos;\
 :heavy_check_mark: Cadastro de Pedidos;\
-:heavy_check_mark: Api paylivre;\
-:heavy_check_mark: tesets unitarios pra regras de negocio;\
-:heavy_check_mark: checkout;
+:heavy_check_mark: API PayLivre;\
+:heavy_check_mark: Testes unitários para regras de negócio;\
+:heavy_check_mark: Checkout;
 
-link das regras do projeto [aqui](./check-list.md)
+[Regras do projeto](./check-list.md)
 
 ## :rocket: Tecnologias ##
 
 Tecnologias usadas no projeto
 
 - [PHP](https://www.php.net/)
-- [Mysql](https://www.mysql.com/)
 - [Laravel](https://laravel.com/)
+- [Mysql](https://www.mysql.com/)
 - [Breeze](https://github.com/laravel/breeze)
+- [Tailwind UI](https://tailwindui.com/documentation)
 - [validator-docs](https://github.com/geekcom/validator-docs)
 
 ## :white_check_mark: Requisitos ##
 
-Para executar este projeto e muito importante ter instalado [Git](https://git-scm.com) e [PHP](https://www.php.net/).
+Para executar este projeto é importante ter instalado [Git](https://git-scm.com) e [PHP](https://www.php.net/).
 
 ## :checkered_flag: Executar ##
 
@@ -108,10 +109,9 @@ php artisan serve
 Este projeto esta sobre esta [LICENSE](LICENSE.md).
 
 ## :memo: Desenvolvedores ##
-[Leandro Cavalcante,](https://github.com/LeoScripts) <br>
 [Alexandre,](https://github.com/Alexandre-A11) <br>
-[Douglas,](https://github.com/) <br>
-[Michele](https://github.com/)
+[Douglas,](https://github.com/DouglasReiz) <br>
+[Leandro Cavalcante,](https://github.com/LeoScripts) <br>
 
 &#xa0;
 

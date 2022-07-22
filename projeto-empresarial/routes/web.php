@@ -6,7 +6,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
     UserController,
     HomeController,
-    ProductController
+    ProductController,
+    StoreController
 };
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
@@ -27,11 +28,16 @@ Route::delete('/delete/{id}', [UserController::class, 'delete'])->middleware(['a
 Route::get('/product/edit/{id}',[ProductController::class, 'edit'])->name('product.edit');
 Route::put('/product/edit/{id}',[ProductController::class, 'update'])->name('product.update');
 Route::get('/products', [ProductController::class, 'index'])->middleware(['auth', 'is_admin'])->name('product.index');
+
+Route::delete('product/{id}', [ProductController::class, 'delete'])->name('product.delete');
+
 Route::get('/product/create', [ProductController::class, 'create'])->name('product.create');
 Route::post('/product', [ProductController::class, 'store'])->name('product.store');
 Route::get('/product', [ProductController::class, 'search'])->name('search');
 Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('product.delete');
 Route::get('/product/{id}',[ProductController::class, 'show'])->middleware(['auth', 'confirm_id'])->name('products.show');
 
+
+Route::get('/store/{section}', [StoreController::class, 'index'])->name('store.index');
 
 require __DIR__ . '/auth.php';
