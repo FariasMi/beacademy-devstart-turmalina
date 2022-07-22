@@ -2,7 +2,7 @@
 @section("title", "Home")
 @section("main")
 
-<div class="h-96 mt-5 bg-slate-400">
+<div>
     <div>
         <section>
             <div class="swiper mySwiper">
