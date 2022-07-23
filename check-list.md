@@ -37,7 +37,7 @@ Os dados básicos de cadastro de usuários são:
 -   [X] Nome
 -   [X] E-mail
 -   [X] Telefone
--   [ ] Endereço
+-   [X] Endereço
 -   [ ] Data de nascimento
 -   [X] CPF
 
