@@ -18,13 +18,12 @@ _O contexto deste projeto é mínimo no que diz respeito a operações de e-comm
 
 ## Requisitos
 
--   [ ] Banco de dados Mysql
-
--   [ ] Autenticação e Cadastro de Usuários
--   [ ] Cadastro de Produtos
+-   [X] Banco de dados Mysql
+-   [X] Autenticação e Cadastro de Usuários
+-   [X] Cadastro de Produtos
 -   [ ] Cadastro de Pedidos
 -   [ ] Checkout
--   [ ] Api de **Paylivre** para efetivação dos pagamentos (anexar documentação)
+-   [X] Api de **Paylivre** para efetivação dos pagamentos (anexar documentação)
 -   [ ] Criação de testes unitários para todas as regras de negócio
 
 ## Regras de negócio -------------------------------
@@ -35,22 +34,22 @@ Deverá possuir 2 tipos de cadastro. Um “Administrador” que será responsáv
 
 Os dados básicos de cadastro de usuários são:
 
--   [ ] Nome
--   [ ] E-mail
--   [ ] Telefone
+-   [X] Nome
+-   [X] E-mail
+-   [X] Telefone
 -   [ ] Endereço
 -   [ ] Data de nascimento
--   [ ] CPF
+-   [X] CPF
 
 ### Cadastro de Produtos
 
 Para o cadastro de produtos, deverá ser possível cadastrar as seguintes informações
 
--   [ ] Nome do produto
--   [ ] Descrição do produto
--   [ ] Quantidade
+-   [X] Nome do produto
+-   [X] Descrição do produto
+-   [X] Quantidade
 -   [ ] Preço de custo
--   [ ] Preço de venda
+-   [X] Preço de venda
 -   [ ] Foto principal
 
 ### Cadastro de Pedidos
