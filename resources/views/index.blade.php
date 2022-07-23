@@ -24,14 +24,10 @@
         </section>
     </div>
 
-
-
-
-
     <div class="flex justify-around mt-8 gap-10">
         @foreach($products as $product)
             <div class="max-w-sm bg-white rounded-lg shadow-md dark:bg-gray-300 dark:border-gray-700 px-20">
-                <a class="flex justify-center" href="#">
+                <a class="flex justify-center" href="{{route('products.show', $product->id)}}">
                     <img width="200" class="p-8 rounded-t-lg" src="https://a-static.mlcdn.com.br/800x560/livro-codigo-limpo/florencedistdelivrosltda/17618/195af3474eb4a670a48ed1c19ce0342a.jpg" alt="product image" />
                 </a>
                 <div class="px-5 pb-5">
