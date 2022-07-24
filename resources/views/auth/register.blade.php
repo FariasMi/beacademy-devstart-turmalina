@@ -40,6 +40,13 @@
                 <x-input id="phone" class="block mt-1 w-full" type="text" name="phone" :value="old('phone')" required />
             </div>
 
+            <!-- Date of Birth -->
+            <div class="mt-4">
+                <x-label for="date_of_birth" :value="__('Data de Nascimento')" />
+
+                <x-input id="date_of_birth" class="block mt-1 w-full" type="date" name="date_of_birth" :value="old('Data de Nascimento')" placeholder="dd-mm-yyyy" value="" min="1900-01-01" max="2022-12-31" required />
+            </div>
+
             <!-- Email Address -->
             <div class="mt-4">
                 <x-label for="email" :value="__('Email')" />
