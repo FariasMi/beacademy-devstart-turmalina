@@ -29,6 +29,12 @@ class ProductController extends Controller
     {
         $data = $request->all();
 
+        $value = $request['price'];
+        $price = str_replace(',','.',$value);
+
+        $data['price'] = $price;
+        
+
         if($request->photo){
             $file = $request['photo'];
             $path = $file->store('product', 'public');

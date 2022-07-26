@@ -23,7 +23,7 @@
                 <h4 class="font-bold my-2">Nome: <span class="font-medium">{{ $product->name }}</span></h4>
                 <h4 class="font-bold my-2">Quantidade: <span class="font-medium">{{ $product->quantity }}</span></h4>
                 <h4 class="font-bold my-2">Descrição: <span class="font-medium">{{ $product->description }}</span></h4>
-                <h4 class="font-bold my-2">Valor: <span class="font-medium">{{ $product->price }}</span></h4>
+                <h4 class="font-bold my-2">Valor: <span class="font-medium">{{ formatMoney($product->price)  }}</span></h4>
                 <h4 class="font-bold my-2">Cadastrado em: <span class="font-medium">{{ date("d/m/Y | H:i", strtotime($product->created_at)) }}</span></h4>
             </div>
 
