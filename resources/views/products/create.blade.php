@@ -7,7 +7,7 @@
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-        <form method="POST" action="{{ route('product.store') }}">
+        <form method="POST" action="{{ route('product.store') }}" enctype="multipart/form-data">
             @csrf
 
             <!-- Name -->
@@ -38,6 +38,10 @@
                 <x-input id="price" class="block mt-1 w-full" type="text" name="price" :value="old('price')" />
             </div>
 
+            <div class="mt-4">
+                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="photo">Upload file</label>
+                <input class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-700 focus:outline-none dark:bg-gray-100 dark:border-gray-600 dark:placeholder-gray-400" id="photo" type="file" name="photo">
+            </div>
 
             <div class="flex items-center justify-end mt-4">
 

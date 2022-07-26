@@ -28,6 +28,18 @@ class ProductController extends Controller
     public function store(StoreUpdateProductFormRequest $request)
     {
         $data = $request->all();
+
+        $value = $request['price'];
+        $price = str_replace(',','.',$value);
+
+        $data['price'] = $price;
+        
+
+        if($request->photo){
+            $file = $request['photo'];
+            $path = $file->store('product', 'public');
+            $data['photo']= $path;
+        }
         
         $this->model->create($data);
 
