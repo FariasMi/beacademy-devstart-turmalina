@@ -6,54 +6,48 @@
 
 
     
-    <table class="table-fixed border-separate border-spacing-y-3">
-        <thead>
-            <tr class="bg-white">
-                <th class="p-4">#ID</th>
-                <th class="p-4">Foto</th>
-                <th class="p-4">Nome</th>
-                <th class="p-4">Quantidade</th>
-                <th class="p-4">Descrição</th>
-                <th class="p-4">Valor</th>
-                <th class="p-4">Cadastrado em</th>
-                <th class="p-4">Atualizado em</th>
-                <th class="p-4">Ações</th>
+    <div class="flex justify-center">
+        <div class="bg-white flex justify-center rounded-lg w-full p-4 my-8"><strong> {{ $product->name }} </strong></div>
+    </div>
 
-            </tr>
-        </thead>
-        <tbody>
+    <div class="flex justify-center">
+        <div class="bg-white relative flex justify-center rounded-lg w-full">
+            <div class="my-6 mx-auto">
+                <h1 class="font-bold my-2 text-indigo-500">Dados:</h1>
+                <h4 class="font-bold my-2">Nome: <img src="{{ asset('storage/'.$product->photo) }}" width="400px"> </h4>
+                
+            </div>
+            <div class="border-2-2 absolute h-full border border-gray-700 border-opacity-20"></div>
+            <div class="my-6 mx-auto">
+                <h4 class="font-bold my-2">Nome: <span class="font-medium">{{ $product->name }}</span></h4>
+                <h4 class="font-bold my-2">Nome: <span class="font-medium">{{ $product->name }}</span></h4>
+                <h4 class="font-bold my-2">Quantidade: <span class="font-medium">{{ $product->quantity }}</span></h4>
+                <h4 class="font-bold my-2">Descrição: <span class="font-medium">{{ $product->description }}</span></h4>
+                <h4 class="font-bold my-2">Valor: <span class="font-medium">{{ $product->price }}</span></h4>
+                <h4 class="font-bold my-2">Cadastrado em: <span class="font-medium">{{ date("d/m/Y | H:i", strtotime($product->created_at)) }}</span></h4>
+            </div>
 
-            <td class="text-center">{{ $product->id }}</td>
-            <td class="text-center">{{ $product->photo }}</td>
-            <td class="text-center">{{ $product->name }}</td>
-            <td class="text-center">{{ $product->quantity }}</td>
-            <td class="text-center">{{ $product->description }}</td>
-            <td class="text-center">{{ $product->price }}</td>
-            <td class="text-center">{{ date("d/m/Y | H:i",strtotime($product->created_at)) }}</td>
-            <td class="text-center">{{ date("d/m/Y | H:i", strtotime($product->updated_at)) }}</td>
-            <td class="text-center">
+        </div>
+    </div>
 
-            <a href="{{ route('product.edit', $product->id) }}" class="btn-alert mr-1">
-                Editar
-            </a>
-            <form action="{{ route('product.delete', $product->id) }}" method="POST" class="inline">
-                @csrf
-                @method("DELETE")
-                <button type="submit" class="btn-danger">
-                    Deletar
-                </button>
-            </form>
+    <div class="flex justify-center">
+        <div class="bg-white relative flex justify-center rounded-lg w-full my-8">
+            <div class="flex mx-auto my-2">
 
+                <a href="{{ route('product.edit', $product->id) }}" class="btn-alert mr-1">
+                    Editar
+                </a>
+                <form action="{{ route('product.delete', $product->id) }}" method="POST" class="inline">
+                    @csrf
+                    @method("DELETE")
+                    <button type="submit" class="btn-danger">
+                        Deletar
+                    </button>
+                </form>
 
-            </td>
-
-            </tr>
-
-        </tbody>
-    </table>
-
-
-
-
+            </div>
+            <div class="border-2-2 absolute h-full border border-gray-700 border-opacity-20"></div>
+        </div>
+    </div>
 </div>
 @endsection
