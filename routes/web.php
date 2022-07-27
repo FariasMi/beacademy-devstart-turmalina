@@ -10,6 +10,7 @@ use App\Http\Controllers\{
     StoreController,
     OrderController
 };
+require __DIR__ . '/auth.php';
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get('/cart', [OrderController::class, 'index'])->name('cart.index');
@@ -39,4 +40,3 @@ Route::get('/products/{id}',[ProductController::class, 'show'])->middleware(['au
 
 Route::get('/store/{section}', [StoreController::class, 'index'])->name('store.index');
 
-require __DIR__ . '/auth.php';
