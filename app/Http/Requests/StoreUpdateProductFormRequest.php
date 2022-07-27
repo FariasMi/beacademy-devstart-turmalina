@@ -40,6 +40,22 @@ class StoreUpdateProductFormRequest extends FormRequest
                 'string',
                 'max:255',
             ],
+
+            'category' => [
+                'required',
+                'string',
+                'max:255',
+            ],
+
+            'price' => [
+                'required',
+                'numeric',
+            ],
+
+            'sale_price' => [
+                'required',
+                'numeric',
+            ],
             
             'photo' => [
                 'nullable',

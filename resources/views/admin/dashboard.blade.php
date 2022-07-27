@@ -1,4 +1,5 @@
 @extends("template.default")
+@section("title", "Lista de Usuários")
 @section("main")
 
 
