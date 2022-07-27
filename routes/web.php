@@ -7,10 +7,12 @@ use App\Http\Controllers\{
     UserController,
     HomeController,
     ProductController,
-    StoreController
+    StoreController,
+    OrderController
 };
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
+Route::get('/cart', [OrderController::class, 'index'])->name('cart.index');
 
 Route::get('/address/create/{id}', [AddressController::class, 'create'])->middleware('auth', 'confirm_id')->name('address.create');
 Route::post('/address/create/{id}', [AddressController::class, 'store'])->middleware('auth', 'confirm_id')->name('address.store');
