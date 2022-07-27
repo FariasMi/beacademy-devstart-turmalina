@@ -13,14 +13,14 @@
 
 
             <div>
-                <x-label for="name" :value="__('Name')" />
+                <x-label for="name" :value="__('Nome')" />
 
                 <x-input id="name" value="{{ $product->name }}" class="block mt-1 w-full" type="text" name="name" />
             </div>
 
 
             <div class="mt-4">
-                <x-label for="quantity" :value="__('quantity')" />
+                <x-label for="quantity" :value="__('Quantidade')" />
 
                 <x-input id="quantity" value="{{ $product->quantity }}" class="block mt-1 w-full" type="text" name="quantity" />
             </div>
@@ -28,17 +28,35 @@
 
 
             <div class="mt-4">
-                <x-label for="description" :value="__('description')" />
+                <x-label for="description" :value="__('Descrição')" />
 
                 <x-input id="description" value="{{ $product->description }}" class="block mt-1 w-full" type="text" name="description" />
             </div>
 
+            <!-- Category -->
+            <div class="mt-4">
+                <x-label for="category">Categoria:</x-label>
+                <select id="category" name="category" class="block mt-1 rounded-md bg-white shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                    <option value="Escrita" selected>Escrita</option>
+                    <option value="Papéis">Papéis</option>
+                    <option value="Escritório">Escritório</option>
+                    <option value="Envelopes">Envelopes</option>
+                    <option value="Arte">Arte</option>
+                    <option value="Embalagens">Embalagens</option>
+                </select>
+            </div>
 
 
             <div class="mt-4">
-                <x-label for="price" :value="__('price')" />
+                <x-label for="price" :value="__('Preço de Compra')" />
 
                 <x-input id="price" value="{{ $product->price }}" class="block mt-1 w-full" type="text" name="price" />
+            </div>
+
+            <div class="mt-4">
+                <x-label for="sale_price" :value="__('Preço de Venda')" />
+
+                <x-input id="sale_price" value="{{ $product->sale_price }}" class="block mt-1 w-full" type="text" name="sale_price" />
             </div>
 
             <div class="flex items-center justify-end mt-4">

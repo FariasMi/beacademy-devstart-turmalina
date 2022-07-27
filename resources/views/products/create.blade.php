@@ -31,11 +31,30 @@
                 <x-input id="description" class="block mt-1 w-full" type="text" name="description" :value="old('description')" />
             </div>
 
-            <!-- Phone -->
+            <!-- Category -->
             <div class="mt-4">
-                <x-label for="price" :value="__('Valor')" />
+                <x-label for="category">Categoria:</x-label>
+                <select id="category" name="category" class="block mt-1 rounded-md bg-white shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                    <option value="Escrita" selected>Escrita</option>
+                    <option value="Papéis">Papéis</option>
+                    <option value="Escritório">Escritório</option>
+                    <option value="Envelopes">Envelopes</option>
+                    <option value="Arte">Arte</option>
+                    <option value="Embalagens">Embalagens</option>
+                </select>
+            </div>
+
+            <!-- Prices -->
+            <div class="mt-4">
+                <x-label for="price" :value="__('Preço de Compra')" />
 
                 <x-input id="price" class="block mt-1 w-full" type="text" name="price" :value="old('price')" />
+            </div>
+
+            <div class="mt-4">
+                <x-label for="sale_price" :value="__('Preço de Venda')" />
+
+                <x-input id="sale_price" class="block mt-1 w-full" type="text" name="sale_price" :value="old('sale_price')" />
             </div>
 
             <div class="mt-4">
