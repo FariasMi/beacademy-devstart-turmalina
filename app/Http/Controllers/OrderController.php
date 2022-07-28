@@ -23,7 +23,11 @@ class OrderController extends Controller
     }
     public function index($id)
     {
-        $products = $this->product->all();
+        $products = $this->product->all(
+            // 'id',
+            // 'name',
+            // 'sale_price',
+        );
         if(!$user = $this->user->find($id)){
             return redirect('/');
         }

@@ -16,7 +16,7 @@
                     text-center
                 ">
                     <h2>pedido: {{ $order->id }}</h2>
-                    <p>{{ $products }}</p>
+                        <p>{{ $order->user->name}}</p><br>
                 </div>
             @endforeach
         </div>
