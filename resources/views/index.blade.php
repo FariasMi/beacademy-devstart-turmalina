@@ -8,13 +8,13 @@
             <div class="swiper mySwiper">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <img src="https://m.media-amazon.com/images/S/aplus-media/vc/1b9cf930-1111-42ee-98e4-7fb87016453c.__CR0,0,970,300_PT0_SX970_V1___.jpg" alt="">
+                    <img src="https://static3.tcdn.com.br/img/img_prod/805881/1654027166_banner_pb.png" alt="">
                 </div>
                 <div class="swiper-slide">
-                    <img src="https://m.media-amazon.com/images/S/aplus-media/vc/1b9cf930-1111-42ee-98e4-7fb87016453c.__CR0,0,970,300_PT0_SX970_V1___.jpg" alt="">
+                    <img src="https://2mlivraria.com.br/wp-content/uploads/2018/12/2m_livraria_banner_02-1920x495.jpg" alt="">
                 </div>
                 <div class="swiper-slide">
-                    <img src="https://m.media-amazon.com/images/S/aplus-media/vc/1b9cf930-1111-42ee-98e4-7fb87016453c.__CR0,0,970,300_PT0_SX970_V1___.jpg" alt="">
+                    <img src="https://wlgdistribuidora.com.br/novo/wp-content/uploads/Banner_Materiais_de_Escritorio_WLG-scaled.jpg" alt="">
                 </div>
             </div>
             <div class="swiper-button-next"></div>

@@ -3,25 +3,38 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
-use App\Models\Order;
+use App\Models\{
+    User,
+    Order,
+    Product
+};
 
 class OrderController extends Controller
 {
     protected $user;
     protected $order;
+    protected $product;
 
-    public function __construct(User $user, Order $order)
+    public function __construct(User $user, Order $order, Product $product,)
     {
         $this->user = $user;
         $this->order = $order;
+        $this->product = $product;
     }
     public function index($id)
     {
+        $products = $this->product->all();
         if(!$user = $this->user->find($id)){
             return redirect('/');
         }
         $orders = $user->orders()->get();
-        return view('cart.index', compact('user','orders'));
+        return view('cart.index', compact('user','orders', 'products'));
     }
+
+    // public function store(Request $request)
+    // {
+    //     $data = $request->all();
+    //     $this->model->create($data);
+    //     return redirect('/cart');
+    // }
 }

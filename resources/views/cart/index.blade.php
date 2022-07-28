@@ -15,8 +15,8 @@
                     p-3 mt-3
                     text-center
                 ">
-                    <strong>{{ $user->name }}</strong>
                     <h2>pedido: {{ $order->id }}</h2>
+                    <p>{{ $products }}</p>
                 </div>
             @endforeach
         </div>
