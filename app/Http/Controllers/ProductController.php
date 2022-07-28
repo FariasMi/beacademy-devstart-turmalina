@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Http\Requests\StoreUpdateProductFormRequest;
+use Spatie\FlareClient\View;
 
 
 class ProductController extends Controller
@@ -34,6 +35,10 @@ class ProductController extends Controller
 
         $data['price'] = $price;
         
+        $value = $request['sale_price'];
+        $price = str_replace(',','.',$value);
+
+        $data['sale_price'] = $price;
 
         if($request->photo){
             $file = $request['photo'];
@@ -52,7 +57,7 @@ class ProductController extends Controller
             $request->search ?? ""
         );
 
-        return view('products.show', compact('products'));
+        return View('products.index', compact('products'));
     }
 
     public function show($id)
