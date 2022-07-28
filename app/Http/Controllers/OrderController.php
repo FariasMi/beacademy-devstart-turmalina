@@ -16,14 +16,12 @@ class OrderController extends Controller
         $this->user = $user;
         $this->order = $order;
     }
-    public function index()
+    public function index($id)
     {
-        if(!$user = $this->user->find(2)){
+        if(!$user = $this->user->find($id)){
             return redirect('/');
         }
         $orders = $user->orders()->get();
         return view('cart.index', compact('user','orders'));
     }
-
-
 }
