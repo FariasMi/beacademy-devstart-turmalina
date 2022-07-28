@@ -11,14 +11,14 @@
     @vite(['resources/css/app.css', 'resources/css/carroussel.css', 'resources/js/app.js', 'resources/js/carroussel.js'])
 </head>
     <body class="font-sans antialiased">
-        <div class=" bg-gray-100">
+        <div>
             @include('layouts.navigation')
             <!-- Page Heading -->
             <header class="bg-white shadow">
                     @yield("header")
             </header>
             <!-- Page Content -->
-            <main>
+            <main class="bg-slate-50 pb-3">
                 @yield("main")
             </main>
             <x-slot name="header">
@@ -26,7 +26,7 @@
                     {{ __('Lista de Usuários') }}
                 </h2>
             </x-slot>
-            <footer class="flex justify-center p-8 mt-8  border-2">
+            <footer class="flex justify-center p-8 mt-8">
                 <p> &copy;2022 turmalina todos os direitos reservados  </p>
             </footer>
         </div>
