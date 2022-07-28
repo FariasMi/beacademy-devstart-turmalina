@@ -9,5 +9,4 @@
         <h2>pedido: {{ $order->id }}</h2>
 
     @endforeach
-
 @endsection
