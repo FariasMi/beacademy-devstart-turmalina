@@ -14,6 +14,7 @@ require __DIR__ . '/auth.php';
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get('/cart', [OrderController::class, 'index'])->name('cart.index');
+Route::get('/cart/{id}', [OrderController::class, 'cart'])->name('cart.cart');
 Route::get('/user/{id}/cart', [OrderController::class, 'show'])->name('cart.show');
 
 Route::get('/address/create/{id}', [AddressController::class, 'create'])->middleware('auth', 'confirm_id')->name('address.create');

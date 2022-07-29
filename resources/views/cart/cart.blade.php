@@ -2,11 +2,11 @@
 @section("title", "Carrinho Show")
 @section("main")
 
-    <h1 class="text-center font-bold text-xl">Carrinho - {{$user->name}}</h1>
+    <h1 class="text-center font-bold text-xl">Carrinho - </h1>
     <div class="flex  justify-center ">
 
         <div class="flex-col container ">
-            @foreach($orders as $order)
+
                 <div class="
                     container
                     shadow-md
@@ -16,9 +16,9 @@
                     text-center
                 ">
                     <p>pedido: {{ $order->id}}</p>
-                    <a href="{{ route('cart.cart', $order->id)}}">teste</a>
+
                 </div>
-            @endforeach
+
         </div>
     </div>
 @endsection

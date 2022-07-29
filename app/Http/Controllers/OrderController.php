@@ -30,16 +30,26 @@ class OrderController extends Controller
 
     public function show($id)
     {
-        $products = $this->product->all(
+        // $products = $this->product->all(
             // 'id',
             // 'name',
             // 'sale_price',
-        );
+        // );
         if(!$user = $this->user->find($id)){
             return redirect('/');
         }
+
         $orders = $user->orders()->get();
-        return view('cart.show', compact('user','orders', 'products'));
+        return view('cart.show', compact('user','orders'));
+    }
+
+    public function cart($id)
+    {
+        // $user = $this->user->find($id);
+        // $products = $this->product->find();
+        $order = $this->order->find($id);
+        // dd($orders);
+        return view('cart.cart',compact('order'));
     }
     // public function store(Request $request)
     // {
