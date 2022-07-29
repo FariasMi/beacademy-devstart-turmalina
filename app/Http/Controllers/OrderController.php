@@ -45,11 +45,10 @@ class OrderController extends Controller
 
     public function cart($id)
     {
-        // $user = $this->user->find($id);
-        // $products = $this->product->find();
         $order = $this->order->find($id);
-        // dd($orders);
-        return view('cart.cart',compact('order'));
+        // dd($order);
+        $product = $this->product->find($order->product_id);
+        return view('cart.cart',compact('order', 'product'));
     }
     // public function store(Request $request)
     // {
