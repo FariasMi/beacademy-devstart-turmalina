@@ -21,7 +21,14 @@ class OrderController extends Controller
         $this->order = $order;
         $this->product = $product;
     }
-    public function index($id)
+    public function index()
+    {
+        $users = $this->user->all();
+        $orders = $this->order->all();
+        return view('cart.index', compact('orders','users'));
+    }
+
+    public function show($id)
     {
         $products = $this->product->all(
             // 'id',
@@ -32,9 +39,8 @@ class OrderController extends Controller
             return redirect('/');
         }
         $orders = $user->orders()->get();
-        return view('cart.index', compact('user','orders', 'products'));
+        return view('cart.show', compact('user','orders', 'products'));
     }
-
     // public function store(Request $request)
     // {
     //     $data = $request->all();
