@@ -80,5 +80,32 @@ class OrderController extends Controller
             session()->flash('success', 'PRODUTO ADICIONANDO AO CARRINHO');
             return redirect()->route('cart.index');
         }
+    }
+
+    public function addProduct(Request $request)
+    {
+        $dataForm = $request->all();
+        $product = $this->product->find($dataForm['id']);
+        $user = auth()->user()->id;
+        $orderId = $this->order-searchOrder([
+            'user_id' => $user,
+            'status' => 'Re'
+        ]);
+
+        if(empty($orderId)) {
+            $newOrder = $this->order->create([
+                'user_id' => $user,
+                'status' => 'RE'
+            ]);
+
+            $orderId = $newOrder->id;
         }
+
+        $createOrderProduct = $this->orderProduct->create([
+            'status' => 'RE',
+            'price' => $product->sale_price,
+            'product_id' => $product->id,
+            'order_id' => $orderId
+        ]);
+    }
 }
