@@ -26,8 +26,8 @@
                     {{ __('Lista de Usuários') }}
                 </h2>
             </x-slot>
-            <footer class="flex justify-center p-8 mt-8">
-                <p> &copy;2022 turmalina todos os direitos reservados  </p>
+            <footer class="flex justify-center p-8 mt-8 relative ">
+                <p class=" bottom-0"> &copy;2022 turmalina todos os direitos reservados  </p>
             </footer>
         </div>
         <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>

@@ -12,7 +12,7 @@ class ProductController extends Controller
     public function __construct(Product $product){
         $this->model = $product;
     }
-    
+
     public function index()
     {
         $products = Product::all();
@@ -20,11 +20,11 @@ class ProductController extends Controller
         return view('products.index', compact('products'));
     }
 
-    public function create() 
+    public function create()
     {
         return view('products.create');
     }
-    
+
     public function store(StoreUpdateProductFormRequest $request)
     {
         $data = $request->all();
@@ -33,14 +33,14 @@ class ProductController extends Controller
         $price = str_replace(',','.',$value);
 
         $data['price'] = $price;
-        
+
 
         if($request->photo){
             $file = $request['photo'];
             $path = $file->store('product', 'public');
             $data['photo']= $path;
         }
-        
+
         $this->model->create($data);
 
         return redirect()->route('product.index');
@@ -60,7 +60,8 @@ class ProductController extends Controller
         if(!$product = $this -> model -> find($id))
             abort(404);
 
-        return view('products.show', compact('product'));
+        $user = auth()->user();
+        return view('products.show', compact('product','user'));
     }
 
     public function edit($id)
@@ -87,7 +88,7 @@ class ProductController extends Controller
     {
         if(!$products = $this->model->find($id))
         return redirect()->route('users.index');
-    
+
         $products->delete();
 
         return redirect()->route('product.index');

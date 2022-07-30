@@ -29,9 +29,4 @@ class Product extends Model
 
         return $products;
     }
-
-    public function order()
-    {
-        return $this->manyToMany(Order::class);
-    }
 }

@@ -6,7 +6,7 @@
     <div class="flex  justify-center ">
 
         <div class="flex-col container ">
-            @foreach($users as $user)
+            @foreach($orders as $order)
                 <div class="
                     container
                     shadow-md
@@ -15,8 +15,8 @@
                     p-3 mt-3
                     text-center
                 ">
-                    <a href="{{ route('cart.show',$user->id ) }}">
-                        <h2>{{ $user->name}}</h2>
+                    <a href="">
+                        {{ $order->id}}
                     </a>
                 </div>
             @endforeach

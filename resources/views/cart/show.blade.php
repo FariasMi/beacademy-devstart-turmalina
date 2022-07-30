@@ -15,8 +15,9 @@
                     p-3 mt-3
                     text-center
                 ">
+                <a href="{{ route('cart.cart', $order->id)}}">
                     <p>pedido: {{ $order->id}}</p>
-                    <a href="{{ route('cart.cart', $order->id)}}">teste</a>
+                </a>
                 </div>
             @endforeach
         </div>

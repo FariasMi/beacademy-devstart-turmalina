@@ -4,37 +4,35 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\{
-    User,
+    OrderProduct,
     Order,
     Product
 };
 
 class OrderController extends Controller
 {
-    protected $user;
+    protected $orderProduct;
     protected $order;
     protected $product;
 
-    public function __construct(User $user, Order $order, Product $product,)
+    public function __construct(OrderProduct $orderProduct, Order $order, Product $product,)
     {
-        $this->user = $user;
+        $this->orderProduct = $orderProduct;
         $this->order = $order;
         $this->product = $product;
     }
     public function index()
     {
-        $users = $this->user->all();
-        $orders = $this->order->all();
-        return view('cart.index', compact('orders','users'));
+        $orders = $this->order
+                        ->where([
+                            'status' => 'RE',
+                            'user_id' => auth()->user()->id
+                        ])->get();
+        return view('cart.index', compact('orders'));
     }
 
     public function show($id)
     {
-        // $products = $this->product->all(
-            // 'id',
-            // 'name',
-            // 'sale_price',
-        // );
         if(!$user = $this->user->find($id)){
             return redirect('/');
         }
@@ -48,12 +46,39 @@ class OrderController extends Controller
         $order = $this->order->find($id);
         // dd($order);
         $product = $this->product->find($order->product_id);
+        // dd($product);
         return view('cart.cart',compact('order', 'product'));
     }
-    // public function store(Request $request)
-    // {
-    //     $data = $request->all();
-    //     $this->model->create($data);
-    //     return redirect('/cart');
-    // }
+    public function store(Request $request)
+    {
+        $dataForm = $request->all();
+        $product = $this->product->find($dataForm['product_id']);
+        $user = auth()->user()->id;
+
+        $orderId = $this->order->searchOrder([
+            'user_id' => $dataForm['user_id'],
+            'status' => 'RE'
+        ]);
+
+        if(empty($orderId)) :
+            $newOrder = $this->order->create([
+                'user_id' => $dataForm['user_id'],
+                'status' => 'RE'
+            ]);
+
+            $orderId = $newOrder->id;
+        endif;
+
+        $createOrderProduct = $this->orderProduct->create([
+            'status' => 'RE',
+            'price' => $product->sale_price,
+            'product_id' => $product->id,
+            'order_id' => $orderId
+        ]);
+
+        if($createOrderProduct){
+            session()->flash('success', 'PRODUTO ADICIONANDO AO CARRINHO');
+            return redirect()->route('cart.index');
+        }
+        }
 }

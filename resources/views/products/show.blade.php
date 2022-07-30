@@ -28,6 +28,7 @@
                 <h4 class="font-bold my-2">Cadastrado em: <span class="font-medium">{{ date("d/m/Y | H:i", strtotime($product->created_at)) }}</span></h4>
             </div>
 
+
         </div>
     </div>
 
@@ -44,6 +45,14 @@
                     <button type="submit" class="btn-danger">
                         Deletar
                     </button>
+                </form>
+                <form action="{{route('cart.store')}}" method="post">
+                    @csrf
+                    @method('POST')
+
+                    <input type="hidden" name="user_id" value="{{ $user->id }}">
+                    <input type="hidden" name="product_id" value="{{ $product->id }}">
+                    <button class="btn-success" type="submit">Adicionar ao carrinho</button>
                 </form>
 
             </div>
