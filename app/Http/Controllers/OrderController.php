@@ -192,7 +192,6 @@ class OrderController extends Controller
             'user_id' => $user
         ])->orderBy('created_at', 'desc')->get();
         $ordersCancel = $this->order->where([])->orderBy('updated_at', 'desc')->get();
-
         return view('cart.orders', compact('ordersFinalized', 'ordersCancel'));
     }
 }
