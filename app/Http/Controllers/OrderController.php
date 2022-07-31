@@ -42,14 +42,14 @@ class OrderController extends Controller
         return view('cart.show', compact('user','orders'));
     }
 
-    public function cart($id)
-    {
-        $orders = $this->order->find($id);
-        // dd($order);
-        $product = $this->product->find($order->product_id);
-        // dd($product);
-        return view('cart.cart',compact('orders', 'product'));
-    }
+    // public function cart($id)
+    // {
+    //     $orders = $this->order->find($id);
+    //     // dd($order);
+    //     $product = $this->product->find($orders->product_id);
+    //     // dd($product);
+    //     return view('cart.cart',compact('orders', 'product'));
+    // }
     public function store(Request $request)
     {
         $dataForm = $request->all();
@@ -98,7 +98,6 @@ class OrderController extends Controller
                 'user_id' => $user,
                 'status' => 'RE'
             ]);
-
             $orderId = $newOrder->id;
         }
 
@@ -175,14 +174,14 @@ class OrderController extends Controller
             'status' => 'PA'
         ]);
 
-        $this->pedido->where([
-            'id' => $dataForm['pedido_id']
-        ])-update([
+        $this->order->where([
+            'id' => $dataForm['order_id']
+        ])->update([
             'status' => 'PA'
         ]);
 
         session()->flash('success', 'pagamento realizado com sucesso , Obrigado volte sempre!');
-        return redirect()->route('compras');
+        return redirect()->route('cart.orders');
     }
 
     public function showOrders()
@@ -191,9 +190,9 @@ class OrderController extends Controller
         $ordersFinalized = $this->order->where([
             'status' => 'PA',
             'user_id' => $user
-        ])->orderBy('create_at', 'desc')->get();
+        ])->orderBy('created_at', 'desc')->get();
         $ordersCancel = $this->order->where([])->orderBy('updated_at', 'desc')->get();
 
-        return view('painel.carrinho.compras', compact('ordersFinalized', 'ordersCancel'));
+        return view('cart.orders', compact('ordersFinalized', 'ordersCancel'));
     }
 }

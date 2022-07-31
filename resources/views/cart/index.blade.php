@@ -91,14 +91,14 @@
                         </tbody>
                     </table>
                     <hr>
-                        <div class="col-lg-4">
-                            <button class="btn btn-block btn-info">CONTINUAR COMPRANDO</button>
+                        <div class="">
+                            <a class="btn-success" href="{{route('product.index')}}">Continuar comprando</a>
                         </div>
-                        <div class="col-lg-4">
-                        <form action="" method="POST">
+                        <div class="">
+                        <form action="{{ route('cart.final') }}" method="POST">
                             @csrf
                             <input type="hidden" name="order_id" value="{{$order->id}}">
-                            <button class="btn btn-block btn-danger" type="submit">CONCLUIR COMPRAS</button>
+                            <button class="btn-danger" type="submit">CONCLUIR COMPRAS</button>
                         </form>
                     </div>
                     <div class="jumbotron jumbotron-fluid col-lg-4">
@@ -106,9 +106,7 @@
                             <h1 class="display-5">Total do pedido R$:   {{number_format($amount, 2, ',', '.')}}</h1>
                         </div>
                     </div>
-              </div>
-
-
+                 </div>
 
             @empty
                 <h5>Não há nenhum order no carrinho</h5>
