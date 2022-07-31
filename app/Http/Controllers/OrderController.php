@@ -107,5 +107,92 @@ class OrderController extends Controller
             'product_id' => $product->id,
             'order_id' => $orderId
         ]);
+
+        if($createOrderProduct){
+            session()->flash('success', 'PRODUTO ADICIONADO AO CARRINHO');
+            return redirect()->route('cart.index');
+        }
+    }
+
+    public function delete(Request $request)
+    {
+        $dataForm = $request->all();
+        $removeItem = (boolean)$dataForm['item'];
+        $user = auth()->user();
+        $order = $this->order->searchOrder([
+            'user_id' => $user->id,
+            'id' => $dataForm['pedido_id'],
+            'status' => 'RE'
+        ]);
+        if(empty($order)) {
+            session()->flash('error','Pedido não encontrado!');
+            return redirect()->route('cart.index');
+        }
+        $where_order = [
+            'order_id' => $dataForm['order_id'],
+            'product_id' => $dataForm['product_id']
+        ];
+        $product = $this->orderProduct->where($where_order)->orderBy('id', 'desc')->first();
+        if(empty($product->id)) {
+            session()->flash('error', 'Produto não encontrado!');
+            return redirect()->route('cart.index');
+        }
+        if($removeItem) {
+            $where_order['id'] =  $product->id;
+        }
+        $this->orderProduct->where($where_order)->delete();
+        $checkOrder = $this->orderProduct->where([
+            'order_id' => $product->order_id
+        ])->exists();
+        if(!$checkOrder) {
+            $this->order->where([
+                'id' => $product->order_id
+            ])->delete();
+        }
+        session()->flash('success', 'Produto removido');
+        return redirect()->route('cart.index');
+    }
+
+    public function finaly(Request $request)
+    {
+        $dataForm = $request->all();
+        $user = auth()->user()->id;
+        $checkOrder = $this->order->where([
+            'id' => $dataForm['order_id'],
+            'user_id' => $user,
+            'status' => 'RE'
+        ]);
+
+        if(!$checkOrder) {
+            session()->flash('error', 'Produtos do pedido nao encontrados!');
+            return redirect()->route('cart.index');
+        }
+
+        $this->orderProduct->where([
+            'id' => $dataForm['order_id']
+        ])->update([
+            'status' => 'PA'
+        ]);
+
+        $this->pedido->where([
+            'id' => $dataForm['pedido_id']
+        ])-update([
+            'status' => 'PA'
+        ]);
+
+        session()->flash('success', 'pagamento realizado com sucesso , Obrigado volte sempre!');
+        return redirect()->route('compras');
+    }
+
+    public function showOrders()
+    {
+        $user = auth()->user()->id;
+        $ordersFinalized = $this->order->where([
+            'status' => 'PA',
+            'user_id' => $user
+        ])->orderBy('create_at', 'desc')->get();
+        $ordersCancel = $this->order->where([])->orderBy('updated_at', 'desc')->get();
+
+        return view('painel.carrinho.compras', compact('ordersFinalized', 'ordersCancel'));
     }
 }
