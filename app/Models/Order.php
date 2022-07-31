@@ -16,20 +16,27 @@ class Order extends Model
 
     public function order_products()
     {
+        // $this->belongsToMany(OrderProduct::class);
         return $this->hasMany(OrderProduct::class)
-            ->select(\DB::raw('product_id, sum(price) as amount, count(1) as qtd'))
-            ->groupBy('product_id')
-            ->orderBy('product_id', 'desc');
+                    ->select(\DB::raw('product_id, sum(price) as amount, count(1) as qtd '))
+                    ->with('products')
+                    ->groupBy('product_id')
+                    ->orderBy('product_id', 'desc');
     }
 
     public function order_product_item()
     {
-         return $this->hasMany(OrderProduct::class);
+         return $this->hasMany(Product::class);
     }
 
     public function searchOrder($value)
     {
         $order = self::where($value)->first();
         return !empty($order->id)? $order->id : null;
+    }
+
+    public function products()
+    {
+        $this->belongsToMany(Product::class);
     }
 }

@@ -24,10 +24,11 @@ class OrderController extends Controller
     public function index()
     {
         $orders = $this->order
-                        ->where([
-                            'status' => 'RE',
-                            'user_id' => auth()->user()->id
-                        ])->get();
+            ->where([
+                'status' => 'RE',
+                'user_id' => auth()->user()->id
+            ])->get();
+
         return view('cart.index', compact('orders'));
     }
 
@@ -43,11 +44,11 @@ class OrderController extends Controller
 
     public function cart($id)
     {
-        $order = $this->order->find($id);
+        $orders = $this->order->find($id);
         // dd($order);
         $product = $this->product->find($order->product_id);
         // dd($product);
-        return view('cart.cart',compact('order', 'product'));
+        return view('cart.cart',compact('orders', 'product'));
     }
     public function store(Request $request)
     {
@@ -119,12 +120,12 @@ class OrderController extends Controller
         $dataForm = $request->all();
         $removeItem = (boolean)$dataForm['item'];
         $user = auth()->user();
-        $order = $this->order->searchOrder([
+        $orders = $this->order->searchOrder([
             'user_id' => $user->id,
             'id' => $dataForm['pedido_id'],
             'status' => 'RE'
         ]);
-        if(empty($order)) {
+        if(empty($orders)) {
             session()->flash('error','Pedido não encontrado!');
             return redirect()->route('cart.index');
         }
@@ -153,7 +154,7 @@ class OrderController extends Controller
         return redirect()->route('cart.index');
     }
 
-    public function finaly(Request $request)
+    public function final(Request $request)
     {
         $dataForm = $request->all();
         $user = auth()->user()->id;
