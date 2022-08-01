@@ -30,4 +30,9 @@ class ProductTest extends TestCase
     {
         $this->assertTrue(true);
     }
+
+    public function test_user_auth_can_update_product()
+    {
+        $this->assertTrue(true);
+    }
 }
