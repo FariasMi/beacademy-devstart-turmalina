@@ -92,7 +92,7 @@ class ProductController extends Controller
     public function destroy($id)
     {
         if(!$products = $this->model->find($id))
-        return redirect()->route('users.index');
+        return redirect()->route('product.index');
 
         $products->delete();
 
