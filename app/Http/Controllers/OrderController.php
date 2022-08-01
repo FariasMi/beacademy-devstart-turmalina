@@ -41,15 +41,6 @@ class OrderController extends Controller
         $orders = $user->orders()->get();
         return view('cart.show', compact('user','orders'));
     }
-
-    // public function cart($id)
-    // {
-    //     $orders = $this->order->find($id);
-    //     // dd($order);
-    //     $product = $this->product->find($orders->product_id);
-    //     // dd($product);
-    //     return view('cart.cart',compact('orders', 'product'));
-    // }
     public function store(Request $request)
     {
         $dataForm = $request->all();
@@ -78,7 +69,7 @@ class OrderController extends Controller
         ]);
 
         if($createOrderProduct){
-            session()->flash('success', 'PRODUTO ADICIONANDO AO CARRINHO');
+            session()->flash('success', 'item adicionado');
             return redirect()->route('cart.index');
         }
     }
@@ -107,11 +98,6 @@ class OrderController extends Controller
             'product_id' => $product->id,
             'order_id' => $orderId
         ]);
-
-        if($createOrderProduct){
-            session()->flash('success', 'PRODUTO ADICIONADO AO CARRINHO');
-            return redirect()->route('cart.index');
-        }
     }
 
     public function delete(Request $request)

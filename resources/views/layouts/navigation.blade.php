@@ -43,7 +43,7 @@
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
-                            <a class="text-slate-500 flex" href="">
+                            <a class="text-slate-500 flex" href="/cart">
                                 <img width="10%" src="https://cdn-icons-png.flaticon.com/128/8081/8081347.png" alt="">
                             </a>
                             <div>{{ Auth::user()->name }}</div>
@@ -61,6 +61,10 @@
                         <!-- Account -->
                         <x-dropdown-link :href="route('user.show', Auth::user()->id )">
                             {{ __('Minha conta') }}
+                        </x-dropdown-link>
+
+                        <x-dropdown-link :href="route('cart.orders', Auth::user()->id )">
+                            {{ __('Meus pedidos') }}
                         </x-dropdown-link>
 
                         <!-- Authentication -->

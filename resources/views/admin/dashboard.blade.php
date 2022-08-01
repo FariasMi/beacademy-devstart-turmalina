@@ -3,7 +3,7 @@
 @section("main")
 
 
-<div class="pt-6 grid mx-64">
+<div class="pt-6 grid container">
     <div class="grid bg-slate-700 rounded-lg">
         <form action="{{ route('dashboard') }}" class="justify-self-start absolute bg-slate-100 rounded-lg mx-auto w-max ml-4 mt-2 mb-2">
             <input id="search" name="search" type="search" class="peer relative z-10 h-9 w-12 cursor-pointer rounded-lg border bg-transparent pl-12 outline-none focus:w-full focus:cursor-text focus:pl-16 focus:pr-4 focus:border-gray-500 focus:ring-0" />

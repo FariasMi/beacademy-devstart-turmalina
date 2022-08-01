@@ -6,7 +6,7 @@
 
             <div class="alert alert-info">
               <strong>{{session()->get('success')}}</strong>
-              <button  type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <button  type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
@@ -29,16 +29,8 @@
             <h5 class="card-header">Produtos do carrinho </h5>
             <div class="card-body">
             @forelse ($orders as $order)
-            <div class="row">
-                <div class="col-lg-6">
-                    <h5 class="card-title">order :  {{ $order->id}}</h5>
-                </div>
-                <div class="col-lg-6">
-                    <h5 class="card-title">Criado em :  {{ $order->created_at->format('d/m/Y H:i')}}</h5>
-                </div>
-                </div>
-                <div class="row">
-                    <table class="table table-striped">
+                <div class="container">
+                    <table class="container ">
                         <thead>
                             <tr>
                                 <th scope="col">Qtd</th>
@@ -59,13 +51,7 @@
 
                             <tr>
                                 <th scope="row">
-                                    <a href="#" onclick="carrinhoRemoverProduto({{$order->id}}, {{$orderItem->produto_id}}, 1)">
-                                        <i class="fa fa-minus-circle" aria-hidden="true"></i>
-                                    </a>
-                                        <span class="col-lg-4">{{ $orderItem->qtd }}</span>
-                                    <a href="#" onclick="carrinhoAdicionarProduto({{$orderItem->produto_id}})">
-                                        <i class="fa fa-plus-circle" aria-hidden="true"></i>
-                                    </a>
+                                    <span class="col-lg-4">{{ $orderItem->qtd }}</span>
                                 </th>
                                 <th>
                                     {{$orderItem->products->name}}
@@ -85,28 +71,27 @@
 
                         @endforeach
 
-
-                            <!--
-                            <-->
                         </tbody>
                     </table>
-                    <hr>
-                        <div class="">
-                            <a class="btn-success" href="{{route('product.index')}}">Continuar comprando</a>
+
+                    <div class="flex justify-around m-3 align-center">
+                        <div>
+                            <a class="btn-success" href="{{route('product.index')}}">CONTINUAR COMPRANDO</a>
                         </div>
                         <div class="">
-                        <form action="{{ route('cart.final') }}" method="POST">
-                            @csrf
-                            <input type="hidden" name="order_id" value="{{$order->id}}">
-                            <button class="btn-danger" type="submit">CONCLUIR COMPRAS</button>
-                        </form>
-                    </div>
-                    <div class="jumbotron jumbotron-fluid col-lg-4">
-                        <div class="container">
-                            <h1 class="display-5">Total do pedido R$:   {{number_format($amount, 2, ',', '.')}}</h1>
+                            <form action="{{ route('cart.final') }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="order_id" value="{{$order->id}}">
+                                <button class="btn-danger" type="submit">CONCLUIR COMPRAS</button>
+                            </form>
+                        </div>
+                        <div class="jumbotron jumbotron-fluid col-lg-4">
+                            <div class="container">
+                                <h3 class="text-2xl">Total do pedido R$:   {{number_format($amount, 2, ',', '.')}}</h3>
+                            </div>
                         </div>
                     </div>
-                 </div>
+            </div>
 
             @empty
                 <h5>Não há nenhum order no carrinho</h5>

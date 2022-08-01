@@ -26,8 +26,15 @@
                 <h4 class="font-bold my-2">Valor de Compra: <span class="font-medium">{{ formatMoney($product->price)  }}</span></h4>
                 <h4 class="font-bold my-2">Valor de Venda: <span class="font-medium">{{ formatMoney($product->sale_price)  }}</span></h4>
                 <h4 class="font-bold my-2">Cadastrado em: <span class="font-medium">{{ date("d/m/Y | H:i", strtotime($product->created_at)) }}</span></h4>
-            </div>
+                <form action="{{route('cart.store')}}" method="post">
+                        @csrf
+                        @method('POST')
 
+                        <input type="hidden" name="user_id" value="{{ $user->id }}">
+                        <input type="hidden" name="product_id" value="{{ $product->id }}">
+                        <button class="btn-success" type="submit">Adicionar ao carrinho</button>
+                </form>
+            </div>
 
         </div>
     </div>
@@ -46,15 +53,6 @@
                         Deletar
                     </button>
                 </form>
-                <form action="{{route('cart.store')}}" method="post">
-                    @csrf
-                    @method('POST')
-
-                    <input type="hidden" name="user_id" value="{{ $user->id }}">
-                    <input type="hidden" name="product_id" value="{{ $product->id }}">
-                    <button class="btn-success" type="submit">Adicionar ao carrinho</button>
-                </form>
-
             </div>
             <div class="border-2-2 absolute h-full border border-gray-700 border-opacity-20"></div>
         </div>
