@@ -13,9 +13,9 @@
 
     <div class="flex justify-center">
         <div class="bg-white relative flex justify-center rounded-lg w-full">
-            <div class="my-6 mx-1">
+            <div class="my-6 mx-auto relative max-w-sm">
                 <h1 class="font-bold my-2 text-indigo-500">{{$product->name}}</h1>
-                <img src="{{ asset('storage/'.$product->photo) }}" width="400px">
+                <img src="{{ asset('storage/'.$product->photo) }}">
 
             </div>
             <div class="border-2-2 absolute h-full border border-gray-700 border-opacity-20"></div>
