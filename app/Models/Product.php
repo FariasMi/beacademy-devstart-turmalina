@@ -29,4 +29,20 @@ class Product extends Model
 
         return $products;
     }
+
+    public function order()
+    {
+        $this->belongsToMany(Order::class);
+    }
+
+    public function orderProduct()
+    {
+        $this->belongsToMany(OrderProduct::class);
+    }
+
+    public function user()
+    {
+        $this->belongsToMany(User::class);
+    }
+
 }

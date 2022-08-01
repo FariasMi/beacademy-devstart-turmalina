@@ -3,7 +3,7 @@
 @section("main")
 
 
-<div class="pt-6 grid mx-64">
+<div class="container pt-6 grid">
 
     <div class="grid bg-slate-700 rounded-lg">
         <form action="{{ route('search') }}" class="justify-self-start absolute bg-slate-100 rounded-lg mx-auto w-max ml-4 mt-2 mb-2">
@@ -15,7 +15,7 @@
         <a href="{{ route( 'product.create') }}" class="btn-success mt-2 mb-2 mr-4 justify-self-end">Novo Produto</a>
     </div>
 
-    <table class="table-fixed border-separate border-spacing-y-3 px-5">
+    <table class="table-fixed ">
         <thead>
             <tr class="bg-white">
                 <th class="p-4">#ID</th>
@@ -24,9 +24,9 @@
                 <th class="p-4">Descrição</th>
                 <th class="p-4">Categoria</th>
                 <th class="p-4">Preço de Venda</th>
-                <th class="p-4">Preço de Compra</th>
-                <th class="p-4">Cadastrado em</th>
-                <th class="p-4">Atualizado em</th>
+                <th class="p-4">Preço de Custo</th>
+                <th class="p-4">Cadastrado</th>
+                <th class="p-4">Atualizado</th>
                 <th class="p-4">Ações</th>
             </tr>
         </thead>
@@ -42,7 +42,7 @@
                 <td class="text-center">{{ formatMoney($product->price) }}</td>
                 <td class="text-center">{{ date("d/m/Y | H:i",strtotime($product->created_at)) }}</td>
                 <td class="text-center">{{ date("d/m/Y | H:i", strtotime($product->updated_at)) }}</td>
-                <td class="text-center py-3">
+                <td class="text-center py-3 flex">
 
                     <a href="{{ route('product.edit', $product->id) }}" class="btn-alert mr-1">
                         Editar

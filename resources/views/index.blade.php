@@ -3,10 +3,10 @@
 @section("main")
 
 <div>
-    <div>
-        <section>
+    <div class="flex justify-center">
+        <section class="">
             <div class="swiper mySwiper">
-            <div class="swiper-wrapper">
+            <div class="swiper-wrapper container">
                 <div class="swiper-slide">
                     <img src="https://static3.tcdn.com.br/img/img_prod/805881/1654027166_banner_pb.png" alt="">
                 </div>
@@ -23,10 +23,14 @@
             </div>
         </section>
     </div>
-
+    <div class=" flex justify-center mt-5">
+        <a href="/products" class="container">
+            <h1 class="text-4xl font-black text-center bg-blue-700 text-white p-3 rounded-md">Nossos Produtos</h1>
+        </a>
+    </div>
     <div class="flex justify-around mt-8 gap-10">
         @foreach($products as $product)
-            <div class="max-w-sm bg-white rounded-lg shadow-md dark:bg-gray-300 dark:border-gray-700 px-20">
+            <div class="container max-w-sm bg-white rounded-lg shadow-md dark:bg-gray-300 dark:border-gray-700 px-20">
                 <a class="flex justify-center" href="{{route('products.show', $product->id)}}">
                     <img width="200" class="p-8 rounded-t-lg" src="{{ 'http://127.0.0.1:8000/storage/'.$product->photo }}" alt="product image" />
                 </a>
