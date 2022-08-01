@@ -28,7 +28,7 @@
         <div class="card">
             <h5 class="card-header">Produtos do carrinho </h5>
             <div class="card-body">
-            @foreach ($orders as $order)
+            @forelse ($orders as $order)
                 <div class="container">
                     <table class="container ">
                         <thead>
