@@ -39,9 +39,17 @@ class UserTest extends TestCase
             'password_confirmation' => 'password',
             'type_user' => 'user',
         ]);
-        
-        User::destroy($user->id);
        
+        $response->assertRedirect(RouteServiceProvider::HOME);
+    }
+
+    public function test_edit_user(){
+        $user = User::where('name', 'Test Create User')->first();
+        
+        $response = $this->actingAs($user)->put('/edit/'. $user->id, [
+            'name' => 'Test Edit User',
+        ]);
+    
         $response->assertRedirect(RouteServiceProvider::HOME);
     }
 }
