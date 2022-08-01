@@ -32,6 +32,7 @@ class StoreUpdateUserFormRequest extends FormRequest {
 
         if ($this->method() == 'PUT') {
             $rules['password'] = ['nullable', 'confirmed', Rules\Password::defaults()];
+            $rules['cpf'] = ["nullable|unique:users,cpf,{$this->id},id"];
         }
 
         return $rules;

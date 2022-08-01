@@ -26,8 +26,8 @@ Route::delete('/address/delete/{id}', [AddressController::class, 'delete'])->mid
 Route::get('/user/create', [UserController::class, 'create'])->middleware(['auth', 'is_admin'])->name('user.create');
 Route::post('/user/create', [RegisteredUserController::class, 'store'])->middleware(['auth', 'is_admin'])->name('user.store');
 Route::get('/user/{id}', [UserController::class, 'show'])->middleware('auth', 'confirm_id')->name('user.show');
+Route::get('/edit/{id}', [UserController::class, 'edit'])->middleware('auth', 'confirm_id')->name('user.edit');
 Route::put('/edit/{id}', [UserController::class, "update"])->name("user.update");
-Route::get('/edit/{id}', [UserController::class, 'edit'])->name('user.edit');
 Route::get('/dashboard', [UserController::class, 'dashboard'])->middleware(['auth', 'is_admin'])->name('dashboard');
 Route::delete('/delete/{id}', [UserController::class, 'delete'])->middleware(['auth', 'is_admin'])->name('user.delete');
 
@@ -41,4 +41,3 @@ Route::delete('/products/{id}', [ProductController::class, 'destroy'])->middlewa
 Route::get('/products/{id}',[ProductController::class, 'show'])->middleware(['auth', 'confirm_id'])->name('products.show');
 
 Route::get('/store/{section}', [StoreController::class, 'index'])->name('store.index');
-

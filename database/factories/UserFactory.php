@@ -20,7 +20,7 @@ class UserFactory extends Factory
         return [
             'name'  => fake()->name(),
             'last_name' => fake()->lastName(),
-            'cpf' => fake()->numerify('cpf-###.###.###-##'),
+            'cpf' => fake()->numerify('###.###.###-##'),
             'phone' => fake()->phoneNumber(),
             'date_of_birth' => fake()->date(),
             'email' => fake()->safeEmail(),

@@ -18,9 +18,7 @@ class ProductTest extends TestCase
      */
     public function test_product()
     {
-        $user = User::factory()->create([
-            'is_admin' => 1,
-        ]);
+        $user = User::factory()->create(['name' => 'Test Product','is_admin' => 1]);
 
         $response = $this->post('/login',[
             'email'=> $user->email,
@@ -37,12 +35,9 @@ class ProductTest extends TestCase
 
     public function test_create_new_product()
     {
-        $user = User::factory()->create([
-            'is_admin' => 1,
-        ]);
+        $user = User::where('name', 'Test Product')->orWhere('is_admin', 1)->first();
 
-        $response = $this->actingAs($user)
-            ->post('/product', [
+        $response = $this->actingAs($user)->post('/product', [
                 'name' => 'Canetinha hidrografica',
                 'quantity' => 200,
                 'description' => 'canetinha a base de água',
@@ -58,14 +53,11 @@ class ProductTest extends TestCase
 
     public function test_user_can_show_product()
     {
-        $user = User::factory()->create([
-            'is_admin' => 1,
-        ]);
+        $user = User::where('name', 'Test Product')->orWhere('is_admin', 1)->first();
 
         $product = Product::factory()->create();
 
-        $response = $this->actingAs($user)
-                ->get('/products/'.$product->id);
+        $response = $this->actingAs($user)->get('/products/'.$product->id);
 
 
         $response->assertStatus(200);
@@ -73,11 +65,11 @@ class ProductTest extends TestCase
 
     public function test_user_auth_can_delete_product()
     {
-        $user = User::factory()->create([
-            'is_admin' => 1,
-        ]);
+        $user = User::where('name', 'Test Product')->orWhere('is_admin', 1)->first();
 
         $product = Product::factory()->create();
+        
+        $response = $this->actingAs($user)->delete('/products/'.$product->id);
 
         $response = $this->actingAs($user)
                 ->delete('/products/'.$product->id);
@@ -86,14 +78,14 @@ class ProductTest extends TestCase
                 ->get('/products');
 
 
+
+        $response = $this->get('/products');
         $response->assertStatus(200);
     }
 
     public function test_user_auth_can_update_product()
     {
-        $user = User::factory()->create([
-            'is_admin' => 1,
-        ]);
+        $user = User::where('name', 'Test Product')->orWhere('is_admin', 1)->first();
 
         $product = Product::factory()->create();
 
@@ -106,10 +98,12 @@ class ProductTest extends TestCase
                     'price' => 0.50,
                     'sale_price' =>2.50
                 ]);
-
+       
         $response = $this->actingAs($user)
                     ->get('/products');
-
+        
+        User::destroy($user->id);
+        
         $response->assertStatus(200);
     }
 
