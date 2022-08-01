@@ -82,8 +82,14 @@ class ProductController extends Controller
         if(!$product = $this->model->find($id))
             return redirect()->route('product.index');
 
-        $data = $request->only('name','quantity','price');
-
+        $data = $request->all();
+        
+        if($request->photo){
+            $file = $request['photo'];
+            $path = $file->store('product', 'public');
+            $data['photo']= $path;
+        }
+        
         $product->update($data);
 
         return redirect()->route('product.index');
