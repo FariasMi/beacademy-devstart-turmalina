@@ -17,7 +17,7 @@
 
     <table class="table-fixed border-separate border-spacing-y-3">
         <thead>
-            <tr class="bg-white">
+            <tr class="bg-white shadow rounded-md">
                 <th class="p-4">#ID</th>
                 <th class="p-4">Nome</th>
                 <th class="p-4">Quantidade</th>
@@ -32,7 +32,7 @@
         </thead>
         <tbody>
             @foreach ($products as $product)
-            <tr onclick="window.location='{{ route('products.show', $product->id) }}'" class="table-row bg-white hover:bg-gray-300 cursor-pointer">
+            <tr onclick="window.location='{{ route('products.show', $product->id) }}'" class="table-row shadow rounded-md bg-white hover:bg-gray-300 cursor-pointer">
                 <td class="text-center">{{ $product->id }}</td>
                 <td class="text-center">{{ $product->name }}</td>
                 <td class="text-center">{{ $product->quantity }}</td>
@@ -42,7 +42,7 @@
                 <td class="text-center">{{ formatMoney($product->price) }}</td>
                 <td class="text-center">{{ date("d/m/Y | H:i",strtotime($product->created_at)) }}</td>
                 <td class="text-center">{{ date("d/m/Y | H:i", strtotime($product->updated_at)) }}</td>
-                <td class="text-center py-3 flex">
+                <td class="text-center p-3">
                     <a href="{{ route('product.edit', $product->id) }}" class="btn-alert mr-1">
                         Editar
                     </a>

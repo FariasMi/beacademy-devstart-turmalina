@@ -15,7 +15,7 @@
     </div>
     <table class="table-fixed border-separate border-spacing-y-3">
         <thead>
-            <tr class="bg-white">
+            <tr class="shadow rounded-md">
                 <th class="p-4">#ID</th>
                 <th class="p-4">Nome</th>
                 <th class="p-4">Sobrenome</th>
@@ -55,9 +55,6 @@
             @endforeach
         </tbody>
     </table>
-
-
     {{ $users->links('pagination::tailwind') }}
-
 </div>
 @endsection
