@@ -26,6 +26,14 @@
                 <h4 class="font-bold my-2">Valor de Compra: <span class="font-medium">{{ formatMoney($product->price)  }}</span></h4>
                 <h4 class="font-bold my-2">Valor de Venda: <span class="font-medium">{{ formatMoney($product->sale_price)  }}</span></h4>
                 <h4 class="font-bold my-2">Cadastrado em: <span class="font-medium">{{ date("d/m/Y | H:i", strtotime($product->created_at)) }}</span></h4>
+                <form action="{{route('cart.store')}}" method="post">
+                        @csrf
+                        @method('POST')
+
+                        <input type="hidden" name="user_id" value="{{ $user->id }}">
+                        <input type="hidden" name="product_id" value="{{ $product->id }}">
+                        <button class="btn-success" type="submit">Adicionar ao carrinho</button>
+                </form>
             </div>
 
         </div>
@@ -33,9 +41,9 @@
 
     <div class="flex justify-center">
         <div class="bg-white relative flex justify-center rounded-lg w-full my-8">
-            <div class="flex mx-auto my-2">
+            <div class="flex ml-auto my-2">
 
-                <a href="{{ route('product.edit', $product->id) }}" class="btn-alert mr-1">
+                <a href="{{ route('product.edit', $product->id) }}" class="btn-alert mr-5">
                     Editar
                 </a>
                 <form action="{{ route('product.delete', $product->id) }}" method="POST" class="inline">
@@ -46,19 +54,7 @@
                     </button>
                 </form>
             </div>
-
             <div class="border-2-2 absolute h-full border border-gray-700 border-opacity-20"></div>
-
-            <div class="mx-auto">
-                <form action="{{route('cart.store')}}" method="post">
-                    @csrf
-                    @method('POST')
-
-                    <input type="hidden" name="user_id" value="{{ $user->id }}">
-                    <input type="hidden" name="product_id" value="{{ $product->id }}">
-                    <button class="btn-success my-2" type="submit">Adicionar ao carrinho</button>
-                </form>
-            </div>
         </div>
     </div>
 </div>
