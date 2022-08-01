@@ -32,7 +32,7 @@
         @foreach($products as $product)
             <div class="container max-w-sm bg-white rounded-lg shadow-md dark:bg-gray-300 dark:border-gray-700 px-20">
                 <a class="flex justify-center" href="{{route('products.show', $product->id)}}">
-                    <img width="200" class="p-8 rounded-t-lg" src="{{ 'http://127.0.0.1:8000/storage/'.$product->photo }}" alt="product image" />
+                    <img width="200" class="p-8 rounded-t-lg" src="{{ 'storage/'.$product->photo }}" alt="product image" />
                 </a>
                 <div class="px-5 pb-5">
                     <a href="#">
