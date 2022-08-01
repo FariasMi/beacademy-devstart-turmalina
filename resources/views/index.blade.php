@@ -32,7 +32,7 @@
         @foreach($products as $product)
             <div class="container max-w-sm bg-white rounded-lg shadow-md dark:bg-gray-300 dark:border-gray-700 px-20">
                 <a class="flex justify-center" href="{{route('products.show', $product->id)}}">
-                    <img width="200" class="p-8 rounded-t-lg" src="{{ 'http://127.0.0.1:8000/storage/'.$product->photo }}" alt="product image" />
+                    <img width="200" class="p-8 rounded-t-lg" src="{{ 'storage/'.$product->photo }}" alt="product image" />
                 </a>
                 <div class="px-5 pb-5">
                     <a href="#">
@@ -47,7 +47,7 @@
                         <span class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">5.0</span>
                     </div>
                     <div class="flex justify-between items-center">
-                        <span class="text-3xl font-bold text-gray-900 dark:text-black ">R$ {{ $product->sale_price }}</span>
+                        <span class="text-3xl font-bold text-gray-900 dark:text-black ">{{ formatMoney($product->sale_price) }}</span>
 
                     </div>
                 </div>

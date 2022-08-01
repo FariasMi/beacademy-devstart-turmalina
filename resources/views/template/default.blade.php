@@ -19,7 +19,7 @@
                     @yield("header")
             </header>
             <!-- Page Content -->
-            <main class=" pb-3">
+            <main class="pb-3">
                 @yield("main")
             </main>
             <x-slot name="header">
