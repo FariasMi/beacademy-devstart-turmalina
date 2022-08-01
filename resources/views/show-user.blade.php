@@ -3,11 +3,11 @@
 @section("main")
 
 <div class="flex justify-center">
-    <div class="bg-white flex justify-center rounded-lg w-4/6 p-4 my-8"><strong> {{ $user->name }} {{ $user->last_name }} </strong></div>
+    <div class="bg-white shadow flex justify-center rounded-lg w-4/6 p-4 my-8"><strong> {{ $user->name }} {{ $user->last_name }} </strong></div>
 </div>
 
 <div class="flex justify-center">
-    <div class="bg-white relative flex justify-center rounded-lg w-4/6">
+    <div class="bg-white shadow relative flex justify-center rounded-lg w-4/6">
         <div class="my-6 mx-auto">
             <h1 class="font-bold my-2 text-indigo-500">Dados:</h1>
             <h4 class="font-bold my-2">Nome: <span class="font-medium">{{ $user->name }}</span></h4>
@@ -47,7 +47,7 @@
 </div>
 
 <div class="flex justify-center">
-    <div class="bg-white relative flex justify-center rounded-lg w-4/6 my-8">
+    <div class="bg-white shadow relative flex justify-center rounded-lg w-4/6 my-8">
         <div class="flex mx-auto my-2">
             @include("components.btn-edit")
             @if (Auth::user()->is_admin)
