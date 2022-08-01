@@ -5,7 +5,7 @@
 
 <div class="pt-6 grid container">
     <div class="grid bg-slate-700 rounded-lg">
-        <form action="{{ route('dashboard') }}" class="justify-self-start absolute bg-slate-100 rounded-lg mx-auto w-max ml-4 mt-2 mb-2">
+        <form action="{{ route('dashboard') }}" class="justify-self-start absolute bg-slate-100 rounded-lg mx-2.5 w-max ml-4 mt-2 mb-2">
             <input id="search" name="search" type="search" class="peer relative z-10 h-9 w-12 cursor-pointer rounded-lg border bg-transparent pl-12 outline-none focus:w-full focus:cursor-text focus:pl-16 focus:pr-4 focus:border-gray-500 focus:ring-0" />
             <svg xmlns="http://www.w3.org/2000/svg" class="absolute inset-y-0 my-auto h-8 w-12 border-r border-transparent stroke-green-500 px-3.5 peer-focus:border-green-400 peer-focus:stroke-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
