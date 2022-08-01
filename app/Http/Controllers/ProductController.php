@@ -36,9 +36,9 @@ class ProductController extends Controller
         $data['price'] = $price;
         
         $value = $request['sale_price'];
-        $price = str_replace(',','.',$value);
+        $sale_price = str_replace(',','.',$value);
 
-        $data['sale_price'] = $price;
+        $data['sale_price'] = $sale_price;
 
         if($request->photo){
             $file = $request['photo'];
