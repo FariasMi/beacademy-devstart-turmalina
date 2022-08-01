@@ -41,8 +41,7 @@ class ProductTest extends TestCase
             'is_admin' => 1,
         ]);
 
-        $response = $this->actingAs($user)
-            ->post('/product', [
+        $response = $this->actingAs($user)->post('/product', [
                 'name' => 'Canetinha hidrografica',
                 'quantity' => 200,
                 'description' => 'canetinha a base de água',
@@ -64,8 +63,7 @@ class ProductTest extends TestCase
 
         $product = Product::factory()->create();
 
-        $response = $this->actingAs($user)
-                ->get('/products/'.$product->id);
+        $response = $this->actingAs($user)->get('/products/'.$product->id);
 
 
         $response->assertStatus(200);
@@ -78,11 +76,11 @@ class ProductTest extends TestCase
         ]);
 
         $product = Product::factory()->create();
+        
+        $response = $this->actingAs($user)->delete('/products/'.$product->id);
 
-        $response = $this->actingAs($user)
-                ->delete('/products/'.$product->id);
 
-
+        $response = $this->get('/products');
         $response->assertStatus(200);
     }
 
