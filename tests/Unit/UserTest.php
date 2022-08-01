@@ -23,4 +23,8 @@ class UserTest extends TestCase
     public function test_edit_user(){
         $this->assertTrue(true);
     }
+
+    public function test_delete_user(){
+        $this->assertTrue(true);
+    }
 }
