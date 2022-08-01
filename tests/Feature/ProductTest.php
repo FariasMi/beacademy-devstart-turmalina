@@ -82,11 +82,36 @@ class ProductTest extends TestCase
         $response = $this->actingAs($user)
                 ->delete('/products/'.$product->id);
 
+        $response = $this->actingAs($user)
+                ->get('/products');
+
 
         $response->assertStatus(200);
     }
 
+    public function test_user_auth_can_update_product()
+    {
+        $user = User::factory()->create([
+            'is_admin' => 1,
+        ]);
 
+        $product = Product::factory()->create();
+
+        $response = $this->actingAs($user)
+                ->put('/product/edit/'.$product->id, [
+                    'name' => 'Caneta Preta',
+                    'quantity' => 400,
+                    'description' => 'Caneta bic ponta fina',
+                    'category' => 'escrita',
+                    'price' => 0.50,
+                    'sale_price' =>2.50
+                ]);
+
+        $response = $this->actingAs($user)
+                    ->get('/products');
+
+        $response->assertStatus(200);
+    }
 
 
 }
