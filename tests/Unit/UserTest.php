@@ -27,4 +27,21 @@ class UserTest extends TestCase
     public function test_delete_user(){
         $this->assertTrue(true);
     }
+
+    public function test_show_user(){
+        $this->assertTrue(true);
+    }
+
+    public function test_rendering_create_address(){
+        $this->assertTrue(true);
+    }
+
+    public function test_create_address(){
+        $this->assertTrue(true);
+    }
+    
+    public function test_delete_address(){
+        $this->assertTrue(true);
+    }
+    
 }

@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             'date_of_birth' => '2000-01-01',
             'email' => 'john.doe@email.com',
             'password' => bcrypt('12345678'),
+            'is_admin' => 1,
         ]);
     }
 }
