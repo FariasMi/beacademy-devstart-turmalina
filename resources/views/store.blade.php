@@ -6,10 +6,10 @@ $title = ucwords($section);
 @section('title', "{$title}")
 @section('main')
 
-<div class="flex justify-around mt-5 px-52 gap-10 flex-wrap">
-    @for ($i = 0; $i < 8; $i++) 
+<div class="flex justify-center mt-5 px-52 gap-10 flex-wrap">
+    @foreach($products as $product)
     @include('components.card-store') 
-    @endfor 
+    @endforeach
 </div>
 
 @endsection
