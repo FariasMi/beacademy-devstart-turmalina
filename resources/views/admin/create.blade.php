@@ -3,7 +3,7 @@
 @section("main")
 
 <div class="grid justify-items-center">
-    <div class="pt-6 p-10 w-2/6">
+    <div class="px-10 w-2/6">
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
@@ -24,12 +24,6 @@
                 <x-input id="last_name" class="block mt-1 w-full" type="text" name="last_name" :value="old('last_name')" />
             </div>
 
-            <!-- Date of Birth -->
-            <div class="mt-4">
-                <x-label for="date_of_birth" :value="__('Data de Nascimento')" />
-
-                <x-input id="date_of_birth" class="block mt-1 w-full" type="date" name="date_of_birth" :value="old('Data de Nascimento')" placeholder="dd-mm-yyyy" value="" min="1900-01-01" max="2022-12-31" required />
-            </div>
 
             <!-- CPF -->
             <div class="mt-4">
@@ -43,6 +37,13 @@
                 <x-label for="phone" :value="__('Telefone')" />
 
                 <x-input id="phone" class="block mt-1 w-full" type="text" name="phone" :value="old('phone')" />
+            </div>
+
+            <!-- Date of Birth -->
+            <div class="mt-4">
+                <x-label for="date_of_birth" :value="__('Data de Nascimento')" />
+
+                <x-input id="date_of_birth" class="block mt-1 w-full" type="date" name="date_of_birth" :value="old('Data de Nascimento')" placeholder="dd-mm-yyyy" value="" min="1900-01-01" max="2022-12-31" required />
             </div>
 
             <!-- Email Address -->

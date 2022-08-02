@@ -13,7 +13,7 @@ use App\Http\Controllers\{
 require __DIR__ . '/auth.php';
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
-Route::get('/cart', [OrderController::class, 'index'])->name('cart.index');
+Route::get('/cart', [OrderController::class, 'index'])->middleware('auth')->name('cart.index');
 Route::post('cart/store', [OrderController::class, 'store'])->name('cart.store');
 Route::post('/cart/final', [OrderController::class, 'final'])->name('cart.final');
 Route::get('/cart/orders', [OrderController::class, 'showOrders'])->name('cart.orders');

@@ -42,10 +42,10 @@
                 <th class="p-4">Nome</th>
                 <th class="p-4">Sobrenome</th>
                 <th class="p-4">CPF</th>
-                <th class="p-4">Telefone</th>
+                <th class="p-4 hidden">Telefone</th>
                 <th class="p-4">Email</th>
-                <th class="p-4">Cadastrado em</th>
-                <th class="p-4">Atualizado em</th>
+                <th class="p-4 hidden">Cadastrado em</th>
+                <th class="p-4 hidden">Atualizado em</th>
                 <th class="p-4">Administrador</th>
                 <th class="p-4">Ações</th>
             </tr>
@@ -53,15 +53,15 @@
         <tbody>
             @foreach ($users as $user)
             @include ("components.link-show")
-            <td class="text-center">{{ $user->id }}</td>
-            <td class="text-center">{{ $user->name }}</td>
-            <td class="text-center">{{ $user->last_name }}</td>
-            <td class="text-center">{{ $user->cpf }}</td>
-            <td class="text-center">{{ $user->phone }}</td>
-            <td class="text-center">{{ $user->email }}</td>
-            <td class="text-center">{{ date("d/m/Y | H:i",strtotime($user->created_at)) }}</td>
-            <td class="text-center">{{ date("d/m/Y | H:i", strtotime($user->updated_at)) }}</td>
-            <td class="text-center">
+            <td class="text-center pr-4">{{ $user->id }}</td>
+            <td class="text-center pr-4">{{ $user->name }}</td>
+            <td class="text-center pr-4">{{ $user->last_name }}</td>
+            <td class="text-center pr-4">{{ $user->cpf }}</td>
+            <td class="text-center pr-4 hidden">{{ $user->phone }}</td>
+            <td class="text-center pr-4">{{ $user->email }}</td>
+            <td class="text-center hidden pr-4">{{ date("d/m/Y | H:i",strtotime($user->created_at)) }}</td>
+            <td class="text-center hidden pr-4">{{ date("d/m/Y | H:i", strtotime($user->updated_at)) }}</td>
+            <td class="text-center pr-4">
                 @if ($user->is_admin)
                 <span class="text-green-500">Sim</span>
                 @else

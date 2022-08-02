@@ -2,7 +2,6 @@
 @section("title", "Lista de Produtos")
 @section("main")
 
-
 <div class="justify-center grid">
 
     @if (session()->has('success'))
@@ -41,28 +40,28 @@
                 <th class="p-4">#ID</th>
                 <th class="p-4">Nome</th>
                 <th class="p-4">Quantidade</th>
-                <th class="p-4">Descrição</th>
+                <th class="p-4 hidden">Descrição</th>
                 <th class="p-4">Categoria</th>
                 <th class="p-4">Preço de Venda</th>
                 <th class="p-4">Preço de Custo</th>
-                <th class="p-4">Cadastrado</th>
-                <th class="p-4">Atualizado</th>
+                <th class="p-4 hidden">Cadastrado</th>
+                <th class="p-4 hidden">Atualizado</th>
                 <th class="p-4">Ações</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($products as $product)
             <tr onclick="window.location='{{ route('products.show', $product->id) }}'" class="table-row shadow-lg rounded-md bg-white hover:bg-gray-300 cursor-pointer">
-                <td class="text-center">{{ $product->id }}</td>
-                <td class="text-center">{{ $product->name }}</td>
-                <td class="text-center">{{ $product->quantity }}</td>
-                <td class="text-center">{{ $product->description }}</td>
-                <td class="text-center">{{ $product->category }}</td>
-                <td class="text-center">{{ formatMoney($product->sale_price) }}</td>
-                <td class="text-center">{{ formatMoney($product->price) }}</td>
-                <td class="text-center">{{ date("d/m/Y | H:i",strtotime($product->created_at)) }}</td>
-                <td class="text-center">{{ date("d/m/Y | H:i", strtotime($product->updated_at)) }}</td>
-                <td class="text-center p-3">
+                <td class="text-center pr-4">{{ $product->id }}</td>
+                <td class="text-center pr-4">{{ $product->name }}</td>
+                <td class="text-center pr-4">{{ $product->quantity }}</td>
+                <td class="text-center pr-4 hidden">{{ $product->description }}</td>
+                <td class="text-center pr-4">{{ $product->category }}</td>
+                <td class="text-center pr-4">{{ formatMoney($product->sale_price) }}</td>
+                <td class="text-center pr-4">{{ formatMoney($product->price) }}</td>
+                <td class="text-center pr-4 hidden">{{ date("d/m/Y | H:i",strtotime($product->created_at)) }}</td>
+                <td class="text-center pr-4 hidden">{{ date("d/m/Y | H:i", strtotime($product->updated_at)) }}</td>
+                <td class="text-center pr-4 p-3">
                     <a href="{{ route('product.edit', $product->id) }}" class="btn-alert mr-1">
                         Editar
                     </a>

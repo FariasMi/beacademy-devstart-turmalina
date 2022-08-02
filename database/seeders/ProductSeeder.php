@@ -66,7 +66,7 @@ class ProductSeeder extends Seeder
             [
             'name' => 'Chamex Vai Brasil',
             'quantity' => '20',
-            'description' => 'Pacote Chamex Edição Limitada Vai Brasil 200 unidades',
+            'description' => 'Chamex Edição Vai Brasil 200 unidades',
             'category' => 'papelaria',
             'price' => '25',
             'sale_price' => '36',

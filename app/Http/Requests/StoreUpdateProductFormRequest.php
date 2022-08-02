@@ -38,7 +38,7 @@ class StoreUpdateProductFormRequest extends FormRequest
             'description' =>[
                 'required',
                 'string',
-                'max:255',
+                'max:40',
             ],
 
             'category' => [

@@ -17,6 +17,7 @@
             <h4 class="font-bold my-2">Telefone: <span class="font-medium">{{ $user->phone }}</span></h4>
             <h4 class="font-bold my-2">Data de Nascimento: <span class="font-medium">{{ date("d/m/Y ", strtotime($user->date_of_birth)) }}</span></h4>
             <h4 class="font-bold my-2">Cadastrado em: <span class="font-medium">{{ date("d/m/Y | H:i", strtotime($user->created_at)) }}</span></h4>
+            <h4 class="font-bold my-2">Atualizado em: <span class="font-medium">{{ date("d/m/Y | H:i", strtotime($user->updated_at)) }}</span></h4>
         </div>
         <div class="border-2-2 absolute h-full border border-gray-700 border-opacity-20"></div>
         <div class="my-6 mx-auto">
