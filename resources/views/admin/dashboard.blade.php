@@ -3,7 +3,7 @@
 @section("main")
 
 
-<div class="pt-12 grid container">
+<div class="pt-12 grid justify-center">
 
     @if (session()->has('success'))
     <div class="absolute grid justify-self-center top-20">
@@ -37,7 +37,7 @@
     </div>
     <table class="table-fixed border-separate border-spacing-y-3">
         <thead>
-            <tr class="shadow rounded-md">
+            <tr class="shadow-lg rounded-md">
                 <th class="p-4">#ID</th>
                 <th class="p-4">Nome</th>
                 <th class="p-4">Sobrenome</th>
