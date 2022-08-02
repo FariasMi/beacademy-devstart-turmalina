@@ -67,9 +67,11 @@
                 <x-input id="country" class="block mt-1 w-full" type="text" name="country" />
             </div>
 
-            <x-button class="ml-4">
-                {{ __('Cadastrar Endereço') }}
-            </x-button>
+            <div class="mt-4 flex justify-end">
+                <x-button class="ml-4">
+                    {{ __('Cadastrar Endereço') }}
+                </x-button>
+            </div>
     </div>
     </form>
 </div>
