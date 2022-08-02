@@ -61,6 +61,8 @@ class RegisteredUserController extends Controller {
 
         if (!Auth::check()) {
             Auth::login($user);
+        }else if (Auth::user()->is_admin) {
+            return redirect()->route('dashboard')->with('success', 'Usuário cadastrado com sucesso!');
         }
 
         // return $request;

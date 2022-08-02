@@ -56,13 +56,13 @@ class UserController extends Controller {
 
         $user->update($data);
 
-        return redirect()->route('dashboard');
+        return redirect()->route('dashboard')->with('success', 'Usuário atualizado com sucesso!');
     }
 
     public function delete($id) {
         $user = User::find($id);
         $user->delete();
 
-        return redirect()->route('dashboard');
+        return redirect()->route('dashboard')->with('success', 'Usuário deletado com sucesso!');
     }
 }
