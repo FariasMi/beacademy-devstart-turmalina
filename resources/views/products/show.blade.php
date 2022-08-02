@@ -8,11 +8,11 @@
 
 
     <div class="flex justify-center">
-        <div class="bg-white shadow flex justify-center rounded-lg w-full p-4 my-8"><strong> {{ $product->name }} </strong></div>
+        <div class="bg-white shadow-lg flex justify-center rounded-lg w-full p-4 my-8"><strong> {{ $product->name }} </strong></div>
     </div>
 
     <div class="flex justify-center">
-        <div class="bg-white shadow relative flex justify-center rounded-lg w-full">
+        <div class="bg-white shadow-lg relative flex justify-center rounded-lg w-full">
             <div class="my-6 mx-auto relative max-w-sm">
                 <h1 class="font-bold my-2 text-indigo-500 text-center">{{$product->name}}</h1>
                 <img src="{{ asset('storage/'.$product->photo) }}">
@@ -32,7 +32,7 @@
     </div>
 
     <div class="flex justify-center">
-        <div class="bg-white shadow relative flex justify-center rounded-lg w-full my-8">
+        <div class="bg-white shadow-lg relative flex justify-center rounded-lg w-full my-8">
             <div class="flex mx-auto my-2">
 
                 <a href="{{ route('product.edit', $product->id) }}" class="btn-alert mr-1">

@@ -3,7 +3,7 @@
 @section("main")
 
 
-<div class="container pt-12 grid">
+<div class="justify-center pt-12 grid">
 
     @if (session()->has('success'))
     <div class="absolute grid justify-self-center top-20">
@@ -37,7 +37,7 @@
 
     <table class="table-fixed border-separate border-spacing-y-3">
         <thead>
-            <tr class="bg-white shadow rounded-md">
+            <tr class="bg-white shadow-lg rounded-md">
                 <th class="p-4">#ID</th>
                 <th class="p-4">Nome</th>
                 <th class="p-4">Quantidade</th>
@@ -52,7 +52,7 @@
         </thead>
         <tbody>
             @foreach ($products as $product)
-            <tr onclick="window.location='{{ route('products.show', $product->id) }}'" class="table-row shadow rounded-md bg-white hover:bg-gray-300 cursor-pointer">
+            <tr onclick="window.location='{{ route('products.show', $product->id) }}'" class="table-row shadow-lg rounded-md bg-white hover:bg-gray-300 cursor-pointer">
                 <td class="text-center">{{ $product->id }}</td>
                 <td class="text-center">{{ $product->name }}</td>
                 <td class="text-center">{{ $product->quantity }}</td>

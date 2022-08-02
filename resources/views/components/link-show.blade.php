@@ -1,1 +1,1 @@
-<tr onclick="window.location='{{ route('user.show', $user->id) }}'" class="table-row bg-white shadow rounded-md hover:bg-gray-300 cursor-pointer">
+<tr onclick="window.location='{{ route('user.show', $user->id) }}'" class="table-row bg-white shadow-xl rounded-md hover:bg-gray-300 cursor-pointer">
