@@ -77,6 +77,8 @@
             @endforeach
         </tbody>
     </table>
-    {{ $users->links('pagination::tailwind') }}
+    <div class="w-full grid justify-items-center mt-8">
+        {{ $users->links('pagination::tailwind') }}
+    </div>
 </div>
 @endsection
