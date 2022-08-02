@@ -48,7 +48,7 @@ class ProductController extends Controller
         
         $this->model->create($data);
 
-        return redirect()->route('product.index');
+        return redirect()->route('product.index')->with('success', "{$request->name} adicionado com sucesso!");
     }
 
     public function search(Request $request) {
@@ -92,7 +92,7 @@ class ProductController extends Controller
         
         $product->update($data);
 
-        return redirect()->route('product.index');
+        return redirect()->route('product.index')->with('success', "{$request->name} atualizado com sucesso!");
     }
 
     public function destroy($id)
@@ -102,7 +102,7 @@ class ProductController extends Controller
 
         $products->delete();
 
-        return redirect()->route('product.index');
+        return redirect()->route('product.index')->with('success', "Produto excluído com sucesso!");
     }
 
 }
