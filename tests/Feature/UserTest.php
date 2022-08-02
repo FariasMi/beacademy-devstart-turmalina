@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Models\Address;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -62,5 +63,47 @@ class UserTest extends TestCase
         $response = $this->actingAs($admin)->delete("/delete/{$user->id}");
         
         $response->assertRedirect(RouteServiceProvider::HOME);
+    }
+
+    public function test_show_user(){
+        $user = User::where('name', 'Test User')->orWhere('is_admin', 1)->first();
+        
+        $response = $this->actingAs($user)->get("/user/{$user->id}");
+        
+        $response->assertStatus(200);
+    }
+
+    public function test_rendering_create_address(){
+       $admin = User::where('name', 'Test User')->orWhere('is_admin', 1)->first();
+        
+       $response = $this->actingAs($admin)->get("/address/create/{$admin->id}");
+        
+       $response->assertStatus(200);
+    }
+
+    public function test_create_address(){
+        $admin = User::where('name', 'Test User')->orWhere('is_admin', 1)->first();
+
+        $response = $this->actingAs($admin)->post("/address/create/{$admin->id}", [
+            'street' => 'Rua Teste',
+            'number' => '123',
+            'complement' => 'Apto. 123',
+            'neighborhood' => 'Bairro Teste',
+            'city' => 'Cidade Teste',
+            'state' => 'SP',
+            'zip_code' => '12345-678',
+            'country' => 'Brasil',
+        ]);
+
+        $response->assertRedirect("/user/{$admin->id}");
+    }
+
+    public function test_delete_address(){
+        $admin = User::where('name', 'Test User')->orWhere('is_admin', 1)->first();
+        $address_id = Address::where('user_id', $admin->id)->first()->id;
+        
+        $response = $this->actingAs($admin)->delete("/address/delete/{$address_id}");
+        
+        $response->assertRedirect("/user/{$admin->id}");
     }
 }
