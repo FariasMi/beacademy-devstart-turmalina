@@ -1,9 +1,9 @@
-<div class="max-w-xs shadow-sm border border-slate-700 rounded-lg shadow-m grid justify-items-center">
-    <div class="mb-2 ">
-        <img class="rounded-xl w-48 h-48  max-w-min object-cover" src={{ asset("storage/{$product->photo}") }} alt="product image">
+<div class="w-[17.5rem] shadow-sm border border-slate-700 rounded-lg shadow-m grid justify-items-center">
+    <div class="mb-2">
+        <img class="rounded-xl w-48 h-48 max-w-min object-cover" src={{ asset("storage/{$product->photo}") }} alt="product image">
     </div>
     <div class="w-full pb-2 rounded-md bg-slate-700">
-        <div class="w-3/4">
+        <div>
             <h5 class="font-semibold tracking-tight text-white text-base ml-2 mt-2">{{ $product->name}}</h5>
             <h5 class="font-semibold tracking-tight text-white text-sm ml-2 mt-2">{{ $product->description}}</h5>
         </div>

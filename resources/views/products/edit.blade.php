@@ -3,7 +3,7 @@
 @section("main")
 
 <div class="grid justify-items-center">
-    <div class="pt-6 p-10 w-2/6">
+    <div class="px-10 w-2/6">
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
@@ -11,9 +11,8 @@
             @method("PUT")
             @csrf
 
-
             <div>
-                <x-label for="name" :value="__('Nome')" />
+                <x-label for="name" :value="__('Produto')" />
 
                 <x-input id="name" value="{{ $product->name }}" class="block mt-1 w-full" type="text" name="name" />
             </div>
@@ -39,7 +38,7 @@
                 <select id="category" name="category" class="block mt-1 rounded-md bg-white shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                     <option value="papelaria" selected>Papelaria</option>
                     <option value="escritorio">Escritório</option>
-                    <option value="Arte">Escritório</option>
+                    <option value="Arte">Arte</option>
                     <option value="outros">Outros</option>>
                 </select>
             </div>
@@ -58,7 +57,7 @@
             </div>
 
             <div class="mt-4">
-                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="photo">Upload file</label>
+                <x-label for="photo" :value="__('Adicionar Imagem')" />
                 <input class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-700 focus:outline-none dark:bg-gray-100 dark:border-gray-600 dark:placeholder-gray-400" id="photo" type="file" name="photo">
             </div>
 

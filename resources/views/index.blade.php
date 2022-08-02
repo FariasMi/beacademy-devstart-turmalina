@@ -48,7 +48,6 @@
                     </div>
                     <div class="flex justify-between items-center">
                         <span class="text-3xl font-bold text-gray-900">{{ formatMoney($product->sale_price) }}</span>
-
                     </div>
                 </div>
             </div>

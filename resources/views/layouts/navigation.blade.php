@@ -40,15 +40,16 @@
                 </div>
             </div>
 
+
             <!-- Settings Dropdown -->
             @auth
             <div class="hidden sm:flex sm:items-center sm:ml-6">
+                <a class="text-slate-500 mr-4" href="/cart">
+                    <img width="14px" src="https://cdn-icons-png.flaticon.com/128/8081/8081347.png" alt="">
+                </a>
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
-                        <button class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
-                            <a class="text-slate-500 flex" href="/cart">
-                                <img width="10%" src="https://cdn-icons-png.flaticon.com/128/8081/8081347.png" alt="">
-                            </a>
+                        <button class="flex mt-1 items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
                             <div>{{ Auth::user()->name }}</div>
 
                             <div class="ml-1">
@@ -58,7 +59,6 @@
                             </div>
                         </button>
                     </x-slot>
-
 
                     <x-slot name="content">
                         <!-- Account -->
@@ -82,16 +82,22 @@
                     </x-slot>
                 </x-dropdown>
                 @else
+
                 @if (Route::has('login'))
                 <div class="hidden top-0 right-0 py-4 sm:block">
                     @auth
                     <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
                     @else
-                    <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+                    <div class="flex mt-2">
+                        <a class="text-slate-500 mr-4" href="/cart">
+                            <img width="14px" src="https://cdn-icons-png.flaticon.com/128/8081/8081347.png" alt="">
+                        </a>
+                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
 
-                    @if (Route::has('register'))
-                    <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-                    @endif
+                        @if (Route::has('register'))
+                        <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                        @endif
+                    </div>
                     @endauth
                 </div>
                 @endif

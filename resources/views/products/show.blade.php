@@ -3,9 +3,7 @@
 @section("main")
 
 
-<div class="pt-6 grid mx-64">
-
-
+<div class="grid mx-64">
 
     <div class="flex justify-center">
         <div class="bg-white shadow-lg flex justify-center rounded-lg w-full p-4 my-8"><strong> {{ $product->name }} </strong></div>
@@ -26,6 +24,7 @@
                 <h4 class="font-bold my-2">Valor de Compra: <span class="font-medium">{{ formatMoney($product->price)  }}</span></h4>
                 <h4 class="font-bold my-2">Valor de Venda: <span class="font-medium">{{ formatMoney($product->sale_price)  }}</span></h4>
                 <h4 class="font-bold my-2">Cadastrado em: <span class="font-medium">{{ date("d/m/Y | H:i", strtotime($product->created_at)) }}</span></h4>
+                <h4 class="font-bold my-2">Atualizado em: <span class="font-medium">{{ date("d/m/Y | H:i", strtotime($product->updated_at)) }}</span></h4>
             </div>
 
         </div>

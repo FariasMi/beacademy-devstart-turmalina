@@ -3,7 +3,7 @@
 @section("main")
 
 <div class="grid justify-items-center">
-    <div class="pt-6 p-10 w-2/6">
+    <div class="px-10 w-2/6">
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
