@@ -8,8 +8,11 @@ $title = ucwords($section);
 
 <div class="flex justify-center mt-5 px-52 gap-10 flex-wrap">
     @foreach($products as $product)
-    @include('components.card-store') 
+    @include('components.card-store')
     @endforeach
+</div>
+<div class="w-full grid justify-items-center mt-8">
+    {{ $products->links('vendor.pagination.tailwind') }}
 </div>
 
 @endsection

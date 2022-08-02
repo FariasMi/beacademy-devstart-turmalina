@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 
 class StoreController extends Controller {
@@ -11,17 +12,16 @@ class StoreController extends Controller {
     }
     
     public function index($section) {
-        if ($section === 'papelaria'){
-            $products = Product::where('category', 'papeis')->get();
-        } else if ($section === 'cadernos'){
-            $products = Product::where('category', 'escritorio')->get();
-        } else if ($section === 'escrita'){
-            $products = Product::where('category', 'escrita')->get();
-        } else if ($section === 'outros'){
-            $products = Product::where('category',"!=", 'papeis')->orWhere('category', '!=', 'escrita')->orWhere('category', '!=', 'escritorio')->get();
-        } else {
-            abort(404);
+        if ($section == 'todos'){
+            $products = Product::paginate(8);     
+        }else if ($section !== 'papelaria' && $section !== 'escritorio' && $section !== 'arte' && $section !== 'outros'){
+    
+            return redirect()->back();
+        }else {
+            $products = Product::where('category', $section)->paginate(8);
         }
+        
+        
         return view('store', compact('section', 'products'));
     }
 }
