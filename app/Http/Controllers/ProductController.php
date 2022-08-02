@@ -42,7 +42,7 @@ class ProductController extends Controller
 
         if($request->photo){
             $file = $request['photo'];
-            $path = $file->store('product', 'public');
+            $path = $file->store('products', 'public');
             $data['photo']= $path;
         }
         
@@ -86,7 +86,7 @@ class ProductController extends Controller
         
         if($request->photo){
             $file = $request['photo'];
-            $path = $file->store('product', 'public');
+            $path = $file->store('products', 'public');
             $data['photo']= $path;
         }
         

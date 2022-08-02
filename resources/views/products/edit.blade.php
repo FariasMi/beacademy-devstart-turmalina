@@ -37,12 +37,10 @@
             <div class="mt-4">
                 <x-label for="category">Categoria:</x-label>
                 <select id="category" name="category" class="block mt-1 rounded-md bg-white shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                    <option value="Escrita" selected>Escrita</option>
-                    <option value="Papéis">Papéis</option>
-                    <option value="Escritório">Escritório</option>
-                    <option value="Envelopes">Envelopes</option>
-                    <option value="Arte">Arte</option>
-                    <option value="Embalagens">Embalagens</option>
+                    <option value="papelaria" selected>Papelaria</option>
+                    <option value="escritorio">Escritório</option>
+                    <option value="Arte">Escritório</option>
+                    <option value="outros">Outros</option>>
                 </select>
             </div>
 

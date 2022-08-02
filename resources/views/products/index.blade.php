@@ -3,7 +3,7 @@
 @section("main")
 
 
-<div class="justify-center pt-12 grid">
+<div class="justify-center grid">
 
     @if (session()->has('success'))
     <div class="absolute grid justify-self-center top-20">

@@ -6,10 +6,13 @@ $title = ucwords($section);
 @section('title', "{$title}")
 @section('main')
 
-<div class="flex justify-around mt-5 px-52 gap-10 flex-wrap">
-    @for ($i = 0; $i < 8; $i++) 
-    @include('components.card-store') 
-    @endfor 
+<div class="flex justify-center mt-5 px-52 gap-10 flex-wrap">
+    @foreach($products as $product)
+    @include('components.card-store')
+    @endforeach
+</div>
+<div class="w-full grid justify-items-center mt-8">
+    {{ $products->links('vendor.pagination.tailwind') }}
 </div>
 
 @endsection
