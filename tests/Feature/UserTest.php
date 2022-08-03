@@ -153,6 +153,6 @@ class UserTest extends TestCase
         ]);
         
         $response->assertRedirect("/cart");
-        
+        Product::destroy($product->id);
     }
 }

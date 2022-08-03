@@ -114,10 +114,9 @@ class ProductTest extends TestCase
 
     public function test_search_product(){
         $product = Product::factory()->create(['name' => 'Caneta']);
-        
-        $user = User::where('name', 'Test Product')->orWhere('is_admin', 1)->first();
 
         $response = $this->get("store/todos?search={$product->name}");
         $response->assertStatus(200);
+        Product::destroy($product->id);
     }
 }
