@@ -26,7 +26,9 @@
                 @csrf
                 @method('POST')
 
+                @auth
                 <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                @endauth
                 <input type="hidden" name="product_id" value="{{ $product->id }}">
                 <button href="#" class="mr-2 text-white bg-green-600 hover:bg-green-700 outline-none font-medium rounded-md text-sm ml-2 px-2 py-2.5 text-center">Adicionar ao carrinho</button>
             </form>
