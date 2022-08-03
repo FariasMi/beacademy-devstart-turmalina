@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Models\Address;
+use App\Models\Product;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -47,7 +48,6 @@ class UserTest extends TestCase
     public function test_edit_user(){
         $user = User::where('name', 'Test Create User')->first();
         
-        // Não sei o que fazer aqui 😭 não funciona. 😠
         $response = $this->actingAs($user)->put("/edit/{$user->id}", [
             'name' => 'Test Edit User',
         ]);
@@ -105,5 +105,54 @@ class UserTest extends TestCase
         $response = $this->actingAs($admin)->delete("/address/delete/{$address_id}");
         
         $response->assertRedirect("/user/{$admin->id}");
+    }
+
+    public function test_rendering_create_user(){
+        $admin = User::where('name', 'Test User')->orWhere('is_admin', 1)->first();
+        
+        $response = $this->actingAs($admin)->get("/user/create");
+        
+        $response->assertStatus(200);
+    }
+
+    public function test_search_user(){
+
+        $admin = User::where('name', 'Test User')->orWhere('is_admin', 1)->first();
+        
+        $response = $this->actingAs($admin)->get("dashboard?search={$admin->id}");
+        
+        $response->assertStatus(200);
+    }
+
+    public function test_search_user_not_found(){
+
+        $admin = User::where('name', 'Test User')->orWhere('is_admin', 1)->first();
+        
+        $response = $this->actingAs($admin)->get("dashboard?search=123");
+        
+        $response->assertStatus(200);
+    }
+
+    public function test_make_order(){
+        $admin = User::where('name', 'Test User')->orWhere('is_admin', 1)->first();
+        $product = Product::factory()->create([
+            'name' => 'Chamex Carta',
+            'quantity' => '40',
+            'description' => 'Papel Carta Chamex 150 unidades',
+            'category' => 'papelaria',
+            'price' => '12',
+            'sale_price' => '16',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        
+        $response = $this->actingAs($admin)->post("cart/store", [
+            'product_id' => $product->id,
+            'user_id' => $admin->id,
+            'price' => $product->price,
+        ]);
+        
+        $response->assertRedirect("/cart");
+        
     }
 }

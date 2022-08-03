@@ -52,6 +52,7 @@ class User extends Authenticatable {
                 $query->where("email", $search);
                 $query->orWhere("name", "LIKE", "%{$search}%");
                 $query->orWhere("last_name", "LIKE", "%{$search}%");
+                $query->orWhere("id", "LIKE","%{$search}%");
             }
         })->paginate(8);
 
