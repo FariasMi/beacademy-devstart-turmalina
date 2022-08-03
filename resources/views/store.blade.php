@@ -12,7 +12,6 @@ $title = ucwords($section);
     @endforeach
 </div>
 <div class="w-full grid justify-items-center mt-8">
-    {{ $products->links('vendor.pagination.tailwind') }}
+    {{ $products->appends(Request::except('page'))->links('vendor.pagination.tailwind') }}
 </div>
-
 @endsection
