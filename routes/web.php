@@ -14,7 +14,7 @@ require __DIR__ . '/auth.php';
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get('/cart', [OrderController::class, 'index'])->middleware('auth')->name('cart.index');
-Route::post('cart/store', [OrderController::class, 'store'])->name('cart.store');
+Route::post('cart/store', [OrderController::class, 'store'])->middleware('auth')->name('cart.store');
 Route::post('/cart/final', [OrderController::class, 'final'])->name('cart.final');
 Route::get('/cart/orders', [OrderController::class, 'showOrders'])->name('cart.orders');
 Route::get('/cart/user/{id}', [OrderController::class, 'show'])->name('cart.show');
@@ -38,6 +38,6 @@ Route::get('/product/create', [ProductController::class, 'create'])->name('produ
 Route::post('/product', [ProductController::class, 'store'])->name('product.store');
 Route::get('/product', [ProductController::class, 'search'])->name('search');
 Route::delete('/products/{id}', [ProductController::class, 'destroy'])->middleware(['auth', 'is_admin'])->name('product.delete');
-Route::get('/products/{id}',[ProductController::class, 'show'])->middleware(['auth', 'confirm_id'])->name('products.show');
+Route::get('/products/{id}',[ProductController::class, 'show'])->name('products.show');
 
 Route::get('/store/{section}', [StoreController::class, 'index'])->name('store.index');

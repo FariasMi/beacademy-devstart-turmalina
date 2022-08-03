@@ -11,16 +11,21 @@ class StoreController extends Controller {
         $this->model = $product;
     }
     
-    public function index($section) {
+    public function index($section, Request $request) {
         if ($section == 'todos'){
-            $products = Product::paginate(8);     
+            $products = Product::paginate(8);
+                 
         }else if ($section !== 'papelaria' && $section !== 'escritorio' && $section !== 'arte' && $section !== 'outros'){
-    
             return redirect()->back();
+            
         }else {
             $products = Product::where('category', $section)->paginate(8);
         }
-        
+
+        if ($request->search){
+            $products = $this->model->getProducts($request->search);
+        }
+         
         
         return view('store', compact('section', 'products'));
     }

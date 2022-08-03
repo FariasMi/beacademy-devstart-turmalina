@@ -40,6 +40,7 @@
                 </div>
             </div>
 
+            <x-search-bar />
 
             <!-- Settings Dropdown -->
             @auth

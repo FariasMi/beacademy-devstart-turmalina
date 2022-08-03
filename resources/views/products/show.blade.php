@@ -2,6 +2,15 @@
 @section("title", "{$product->name}")
 @section("main")
 
+@php
+if (Auth::user()->is_admin){
+$parameter = "";
+$sale = "Valor de Venda:";
+} else {
+$parameter = "hidden";
+$sale = "Valor:";
+}
+@endphp
 
 <div class="grid mx-64">
 
@@ -19,12 +28,12 @@
             <div class="border-2-2 absolute h-full border border-gray-700 border-opacity-20"></div>
             <div class="my-6 mx-auto">
                 <h4 class="font-bold my-2">Nome: <span class="font-medium">{{ $product->name }}</span></h4>
-                <h4 class="font-bold my-2">Quantidade: <span class="font-medium">{{ $product->quantity }}</span></h4>
+                <h4 class="font-bold my-2 {{ $parameter }}">Quantidade: <span class="font-medium">{{ $product->quantity }}</span></h4>
+                <h4 class="font-bold my-2 {{ $parameter }}">Valor de Compra: <span class="font-medium">{{ formatMoney($product->price)  }}</span></h4>
+                <h4 class="font-bold my-2"> {{ $sale }} <span class="font-medium">{{ formatMoney($product->sale_price)  }}</span></h4>
+                <h4 class="font-bold my-2 {{ $parameter }}">Cadastrado em: <span class="font-medium">{{ date("d/m/Y | H:i", strtotime($product->created_at)) }}</span></h4>
+                <h4 class="font-bold my-2 {{ $parameter }}">Atualizado em: <span class="font-medium">{{ date("d/m/Y | H:i", strtotime($product->updated_at)) }}</span></h4>
                 <h4 class="font-bold my-2">Descrição: <span class="font-medium">{{ $product->description }}</span></h4>
-                <h4 class="font-bold my-2">Valor de Compra: <span class="font-medium">{{ formatMoney($product->price)  }}</span></h4>
-                <h4 class="font-bold my-2">Valor de Venda: <span class="font-medium">{{ formatMoney($product->sale_price)  }}</span></h4>
-                <h4 class="font-bold my-2">Cadastrado em: <span class="font-medium">{{ date("d/m/Y | H:i", strtotime($product->created_at)) }}</span></h4>
-                <h4 class="font-bold my-2">Atualizado em: <span class="font-medium">{{ date("d/m/Y | H:i", strtotime($product->updated_at)) }}</span></h4>
             </div>
 
         </div>
@@ -33,7 +42,7 @@
     <div class="flex justify-center">
         <div class="bg-white shadow-lg relative flex justify-center rounded-lg w-full my-8">
             <div class="flex mx-auto my-2">
-
+                @if (Auth::user()->is_admin)
                 <a href="{{ route('product.edit', $product->id) }}" class="btn-alert mr-1">
                     Editar
                 </a>
@@ -47,7 +56,7 @@
             </div>
 
             <div class="border-2-2 absolute h-full border border-gray-700 border-opacity-20"></div>
-
+            @endif
             <div class="mx-auto">
                 <form action="{{route('cart.store')}}" method="post">
                     @csrf

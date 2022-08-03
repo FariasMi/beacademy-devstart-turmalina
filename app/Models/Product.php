@@ -23,7 +23,7 @@ class Product extends Model
     public function getProducts(string $search = null) {
         $products = $this->where(function ($query) use ($search) {
             if ($search) {
-                $query->orWhere("name", "LIKE", "%{$search}%");
+                $query->Where("name", "LIKE", "%{$search}%");
             }
         })->paginate(8);
 
