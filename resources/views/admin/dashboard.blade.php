@@ -78,7 +78,7 @@
         </tbody>
     </table>
     <div class="w-full grid justify-items-center mt-8">
-        {{ $products->appends(Request::except('page'))->links('vendor.pagination.tailwind') }}
+        {{ $users->appends(Request::except('page'))->links('vendor.pagination.tailwind') }}
     </div>
 </div>
 @endsection
