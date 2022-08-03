@@ -180,4 +180,10 @@ class OrderController extends Controller
         $ordersCancel = $this->order->where([])->orderBy('updated_at', 'desc')->get();
         return view('cart.orders', compact('ordersFinalized', 'ordersCancel'));
     }
+
+    public function delete_order($id, $order_id){
+       OrderProduct::where('order_id', $order_id)->where('product_id', $id)->first()->delete();
+
+       return redirect()->back();
+    }
 }
