@@ -16,9 +16,6 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        
-        \App\Models\User::factory(10)->create();
-
         if (!User::where('cpf', '38406720077')->first()){
             DB::table('users')->insert(
                 [
@@ -47,5 +44,6 @@ class UserTableSeeder extends Seeder
                 ]);      
         }
             
+        \App\Models\User::factory(10)->create();
     }
 }
