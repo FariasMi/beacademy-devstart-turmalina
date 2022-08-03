@@ -45,7 +45,10 @@ class ProductTest extends TestCase
                 'price' => 1.20,
                 'sale_price' => 15.00,
             ]);
-
+        
+        $product = Product::where('name', 'Canetinha hidrografica')->first();
+        Product::destroy($product->id);
+            
         $response = $this->get('/products');
 
         $response->assertStatus(200);
@@ -59,7 +62,7 @@ class ProductTest extends TestCase
 
         $response = $this->actingAs($user)->get('/products/'.$product->id);
 
-
+        Product::destroy($product->id);
         $response->assertStatus(200);
     }
 
@@ -101,11 +104,20 @@ class ProductTest extends TestCase
        
         $response = $this->actingAs($user)
                     ->get('/products');
-        
+                    
+        Product::destroy($product->id);
         User::destroy($user->id);
         
         $response->assertStatus(200);
     }
 
 
+    public function test_search_product(){
+        $product = Product::factory()->create(['name' => 'Caneta']);
+        
+        $user = User::where('name', 'Test Product')->orWhere('is_admin', 1)->first();
+
+        $response = $this->get("store/todos?search={$product->name}");
+        $response->assertStatus(200);
+    }
 }
