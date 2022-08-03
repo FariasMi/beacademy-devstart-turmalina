@@ -8,9 +8,6 @@
             <div class="swiper mySwiper">
             <div class="swiper-wrapper container">
                 <div class="swiper-slide">
-                    <img src="https://static3.tcdn.com.br/img/img_prod/805881/1654027166_banner_pb.png" alt="">
-                </div>
-                <div class="swiper-slide">
                     <img src="https://2mlivraria.com.br/wp-content/uploads/2018/12/2m_livraria_banner_02-1920x495.jpg" alt="">
                 </div>
                 <div class="swiper-slide">
@@ -23,15 +20,15 @@
             </div>
         </section>
     </div>
-    <div class=" flex justify-center mt-5">
+    <div class="flex justify-center mt-5">
         <a href="/products" class="container">
             <h1 class="text-4xl font-black text-center bg-blue-700 text-white p-3 rounded-md">Nossos Produtos</h1>
         </a>
     </div>
-    <div class="flex justify-around mt-8 gap-10">
+    <div class="flex justify-center mt-8 mx-48 gap-10 flex-wrap">
         @foreach($products as $product)
             <div class="container max-w-sm bg-white rounded-lg shadow-lg px-20">
-                <a class="flex justify-center" href="{{route('products.show', $product->id)}}">
+                <a class="flex justify-center" href="{{ route('products.show', $product->id)}} ">
                     <img width="200" class="p-8 rounded-t-lg" src="{{ 'storage/'.$product->photo }}" alt="product image" />
                 </a>
                 <div class="px-5 pb-5">
