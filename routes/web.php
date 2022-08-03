@@ -38,6 +38,6 @@ Route::get('/product/create', [ProductController::class, 'create'])->name('produ
 Route::post('/product', [ProductController::class, 'store'])->name('product.store');
 Route::get('/product', [ProductController::class, 'search'])->name('search');
 Route::delete('/products/{id}', [ProductController::class, 'destroy'])->middleware(['auth', 'is_admin'])->name('product.delete');
-Route::get('/products/{id}',[ProductController::class, 'show'])->middleware(['auth', 'confirm_id'])->name('products.show');
+Route::get('/products/{id}',[ProductController::class, 'show'])->name('products.show');
 
 Route::get('/store/{section}', [StoreController::class, 'index'])->name('store.index');
