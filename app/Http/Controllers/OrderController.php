@@ -79,7 +79,7 @@ class OrderController extends Controller
         $dataForm = $request->all();
         $product = $this->product->find($dataForm['id']);
         $user = auth()->user()->id;
-        $orderId = $this->order-searchOrder([
+        $orderId = $this->order->searchOrder([
             'user_id' => $user,
             'status' => 'Re'
         ]);
