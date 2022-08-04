@@ -43,7 +43,5 @@ class UserTableSeeder extends Seeder
                 'is_admin' => 0,
                 ]);      
         }
-            
-        \App\Models\User::factory(10)->create();
     }
 }
