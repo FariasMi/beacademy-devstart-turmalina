@@ -169,12 +169,11 @@ class OrderController extends Controller
     public function showOrders()
     {
         $user = auth()->user()->id;
-        $ordersFinalized = $this->order->where([
-            'status' => 'PA',
+        $orders_made = $this->order->where([
             'user_id' => $user
-        ])->orderBy('created_at', 'desc')->get();
+        ])->orderBy('created_at', 'desc')->paginate(8);
         $ordersCancel = $this->order->where([])->orderBy('updated_at', 'desc')->get();
-        return view('cart.orders', compact('ordersFinalized', 'ordersCancel'));
+        return view('cart.orders', compact('orders_made', 'ordersCancel'));
     }
 
     public function delete_order($id, $order_id){
