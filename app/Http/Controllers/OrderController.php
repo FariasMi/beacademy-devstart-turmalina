@@ -146,6 +146,7 @@ class OrderController extends Controller
     public function final(Request $request)
     {
         $dataForm = $request->all();
+
         $user = auth()->user();
         $checkOrder = $this->order->where([
             'id' => $dataForm['order_id'],
@@ -162,7 +163,7 @@ class OrderController extends Controller
         
         Mail::to(Auth::user()->email)->send(new MailOrderPending($order)); 
         
-        return view('cart.payment', compact('dataForm'));
+        return view('cart.payment', compact('order'));
     }
 
     public function showOrders()

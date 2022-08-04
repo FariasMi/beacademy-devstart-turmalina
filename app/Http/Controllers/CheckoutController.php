@@ -2,14 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\MailOrderSuccess;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Dompdf\Dompdf;
 use App\Models\{
+    Address,
     OrderProduct,
     Order,
     Product
 };
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class CheckoutController extends Controller
 {
@@ -25,17 +29,13 @@ class CheckoutController extends Controller
         $this->product = $product;
     }
 
-    public function create(Request $request)
-    {
-
-        $order = $this->order->find($request->order_id);
-        return view('site.checkout', compact('order'));
-    }
 
     public function ticket(Request $request)
     {
-
-        $dataForm = $request->all();
+        $address = Address::where('id', $request->address_id)->first();
+        
+        $dataForm = $request->except('address_id');
+        
         $response = Http::withHeaders([
             'Content-Type' => 'application/json',
             'token' => 'UGFyYWLDqW5zLCB2b2PDqiBlc3RhIGluZG8gYmVtIQ=='
@@ -45,17 +45,17 @@ class CheckoutController extends Controller
             'transaction_installment' => (int)$request->transaction_installments,
             'customer_name' => $request->name,
             'customer_document' => $request->cpf,
-            'customer_postcode' => $request->postcode,
-            'customer_address_street' => $request->address,
-            'customer_address_number' => $request->address_number,
-            'customer_address_neighborhood' => $request->address_neighborhood,
-            'customer_address_city' => $request->address_city,
-            'customer_address_state' => $request->address_state,
-            'customer_address_country' => $request->address_country
+            'customer_postcode' => $address->zip_code,
+            'customer_address_street' => $address->street,
+            'customer_address_number' => $address->number,
+            'customer_address_neighborhood' => $address->neighborhood,
+            'customer_address_city' => $address->city,
+            'customer_address_state' => $address->state,
+            'customer_address_country' => $address->country
         ]);
 
         $data = $response->json();
-
+        
         if($data['response']['code'] == 201){
 
             $this->orderProduct->where([
@@ -69,6 +69,9 @@ class CheckoutController extends Controller
             ])->update([
                 'status' => 'PA'
             ]);
+
+            $order = Order::where('id', $dataForm['order_id'])->first();
+            Mail::to(Auth::user()->email)->send(new MailOrderSuccess($order)); 
         }
 
         $dompdf = new Dompdf();
@@ -82,23 +85,22 @@ class CheckoutController extends Controller
 
     public function card(Request $request)
     {
-        $dataForm = $request->all();
+        $address = Address::where('id', $request->address_id)->first();
+
+        $dataForm = $request->except('address_id');
+        
         $response = Http::withHeaders([
             'Content-Type' => 'application/json',
             'token' => 'UGFyYWLDqW5zLCB2b2PDqiBlc3RhIGluZG8gYmVtIQ=='
         ])->post('https://tracktools.vercel.app/api/checkout', [
             'transaction_type' => $request->transaction_type,
             'transaction_amount' => (int)$request->transaction_amount,
-            'transaction_installment' => (int)$request->transaction_installments,
+            'transaction_installments' => (int)$request->transaction_installments,
             'customer_name' => $request->name,
             'customer_document' => $request->cpf,
-            'customer_postcode' => $request->postcode,
-            'customer_address_street' => $request->address,
-            'customer_address_number' => $request->address_number,
-            'customer_address_neighborhood' => $request->address_neighborhood,
-            'customer_address_city' => $request->address_city,
-            'customer_address_state' => $request->address_state,
-            'customer_address_country' => $request->address_country
+            "customer_card_number" => $request->card_number,
+            "customer_card_expiration_date" => $request->expiration_date,
+            "customer_card_cvv" => $request->cvv
         ]);
 
         $data = $response->json();
@@ -116,7 +118,11 @@ class CheckoutController extends Controller
             ])->update([
                 'status' => 'PA'
             ]);
+
+            $order = Order::where('id', $dataForm['order_id'])->first();
+            Mail::to(Auth::user()->email)->send(new MailOrderSuccess($order)); 
         }
+        
 
         session()->flash('success', 'pagamento realizado com sucesso , Obrigado volte sempre!');
         return redirect()->route('home.index');

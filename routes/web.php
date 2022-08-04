@@ -4,6 +4,7 @@ use App\Http\Controllers\AddressController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
+    CheckoutController,
     UserController,
     HomeController,
     ProductController,
@@ -11,6 +12,9 @@ use App\Http\Controllers\{
     OrderController
 };
 require __DIR__ . '/auth.php';
+
+Route::post('/checkout/ticket', [CheckoutController::class, 'ticket'])->name('checkout.ticket');
+Route::post('/checkout/card', [CheckoutController::class, 'card'])->name('checkout.card');
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get('/cart', [OrderController::class, 'index'])->middleware('auth')->name('cart.index');

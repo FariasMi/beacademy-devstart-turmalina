@@ -27,7 +27,7 @@ class MailOrderSuccess extends Mailable
 public function build(Request $request)
     {     
         return $this->from('mail@example.com', 'Turmalina')
-            ->subject('Papelaria Turmalina')
+            ->subject('Papelaria Turmalina, Obrigado pelo seu pedido!')
             ->markdown('mails.order_success')->with([
                 'pedido' => $request->order_id, 
                 'order' => $this->parameter, 

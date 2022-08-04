@@ -2,6 +2,9 @@
 @section("title", "Efetuar Pagamento")
 @section("main")
 
+@php
+$amount = $order->order_products->first()->amount;
+@endphp
 <div class="flex justify-center">
     <div class="bg-slate-700 text-white shadow-xl flex flex-col text-center rounded-lg w-4/6 p-4 mb-8">
         <strong>Efetuar Pagamento</strong>
@@ -20,7 +23,7 @@
         <div id="paymentCard" style="display: none;" class="mx-auto">
             <h1 class="text-center py-5 bg-white"><strong>Cartão de Crédito</strong></h1>
 
-            <form class="mt-4 w-3/6 mx-auto" action="" method="POST">
+            <form class="mt-4 w-3/6 mx-auto" action="{{ route('checkout.card')}}" method="POST">
                 @csrf
                 <input type="hidden">
                 <div class="grid grid-cols-12 gap-y-6 gap-x-4">
@@ -47,14 +50,14 @@
                     <div class="col-span-full">
                         <label for="card-number" class="block text-sm font-medium text-gray-700">Número do Cartão</label>
                         <div class="mt-1">
-                            <input type="text" id="card-number" name="card-number" autocomplete="cc-number" class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+                            <input type="text" id="card-number" name="card_number" autocomplete="cc-number" class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
                         </div>
                     </div>
 
                     <div class="col-span-8 sm:col-span-9">
                         <label for="expiration-date" class="block text-sm font-medium text-gray-700">Data de Vencimento (MM/YY)</label>
                         <div class="mt-1">
-                            <input type="text" name="expiration-date" id="expiration-date" class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+                            <input type="text" name="expiration_date" id="expiration-date" class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
                         </div>
                     </div>
 
@@ -65,7 +68,8 @@
                         </div>
                     </div>
                     <input type="hidden" name="transaction_type" value="card" />
-                    <input type="hidden" name="transaction_amount" value="" />
+                    <input type="hidden" name="order_id" value="{{ $order->id}}" />
+                    <input type="hidden" name="transaction_amount" value="{{ $amount }}" />
                     <input type="hidden" name="transaction_installments" value="2" />
                 </div>
 
@@ -81,7 +85,7 @@
             <h1 class="text-center py-5 bg-white"><strong>Boleto Bancário</strong></h1>
 
 
-            <form class="mt-4 w-full mx-auto" action="" method="POST">
+            <form class="mt-4 w-full mx-auto" action="{{ route('checkout.ticket')}}" method="POST">
                 @csrf
                 <div class="grid grid-cols-12 gap-y-6 gap-x-4">
 
@@ -165,8 +169,8 @@
                 </div>
 
                 <input type="hidden" name="transaction_type" value="ticket" />
-                <input type="hidden" name="order_id" value="" />
-                <input type="hidden" name="transaction_amount" value="" />
+                <input type="hidden" name="order_id" value="{{ $order->id}}" />
+                <input type="hidden" name="transaction_amount" value="{{ $amount }}" />
                 <input type="hidden" name="transaction_installments" value="2" />
 
                 <button type="submit" class="w-full mt-6 bg-slate-600 border border-transparent rounded-md shadow-sm py-2 px-4 text-sm font-medium text-white hover:bg-slate-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:bg-slate-500">Gerar Boleto</button>
