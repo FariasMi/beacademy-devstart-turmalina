@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.1/dist/flowbite.min.css" />
     <title>@yield("title")</title>
     <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/css/carroussel.css', 'resources/js/app.js', 'resources/js/carroussel.js'])
+    @vite(['resources/js/app.js'])
 </head>
 <body class="font-sans antialiased">
     <div>
