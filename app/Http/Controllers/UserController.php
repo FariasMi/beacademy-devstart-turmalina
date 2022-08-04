@@ -13,14 +13,16 @@ class UserController extends Controller {
         $this->model = $user;
     }
 
-    public function show($id) {
+    public function show($id, $address_empty = null) {
         if (!$user = $this->model->find($id)) {
             abort(404);
         }
 
         $addresses = $user->addresses()->get();
-
-
+        
+        if ($address_empty){
+            session()->flash('warning', 'Necessário cadastrar um endereço!');
+        }
         return view('show-user', compact('user', 'addresses'));
     }
 

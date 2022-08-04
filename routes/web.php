@@ -18,6 +18,7 @@ Route::post('/cart/store', [OrderController::class, 'store'])->middleware('auth'
 Route::post('/cart/final', [OrderController::class, 'final'])->name('cart.final');
 Route::get('/cart/orders', [OrderController::class, 'showOrders'])->name('cart.orders');
 Route::get('/cart/user/{id}', [OrderController::class, 'show'])->name('cart.show');
+Route::get('/cart/payment/{order_id}', [OrderController::class, 'payment'])->name('cart.payment');
 Route::delete('/cart/delete/{id}/{order_id}', [OrderController::class, 'delete_order'])->name('cart.delete');
 
 Route::get('/address/create/{id}', [AddressController::class, 'create'])->middleware('auth', 'confirm_id')->name('address.create');
@@ -26,7 +27,7 @@ Route::delete('/address/delete/{id}', [AddressController::class, 'delete'])->mid
 
 Route::get('/user/create', [UserController::class, 'create'])->middleware(['auth', 'is_admin'])->name('user.create');
 Route::post('/user/create', [RegisteredUserController::class, 'store'])->middleware(['auth', 'is_admin'])->name('user.store');
-Route::get('/user/{id}', [UserController::class, 'show'])->middleware('auth', 'confirm_id')->name('user.show');
+Route::get('/user/{id}/{address_empty?}', [UserController::class, 'show'])->middleware('auth', 'confirm_id')->name('user.show');
 Route::get('/edit/{id}', [UserController::class, 'edit'])->middleware('auth', 'confirm_id')->name('user.edit');
 Route::put('/edit/{id}', [UserController::class, "update"])->name("user.update");
 Route::get('/dashboard', [UserController::class, 'dashboard'])->middleware(['auth', 'is_admin'])->name('dashboard');
