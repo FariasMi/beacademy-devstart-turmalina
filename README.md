@@ -8,6 +8,10 @@
 
 <h1 align="center">Be Academy Devstart Turmalina</h1>
 
+<a href="https://turmalina-devstart.herokuapp.com/">
+<img src="./turmalina.png" />
+</a>
+
 <p align="center">
   <img alt="Github top language" src="https://img.shields.io/github/languages/top/FariasMi/beacademy-devstar-turmalina?color=56BEB8">
 
