@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Http\Requests\StoreUpdateProductFormRequest;
+use Illuminate\Support\Facades\Storage;
 use Spatie\FlareClient\View;
 
 
@@ -44,6 +45,7 @@ class ProductController extends Controller
             $file = $request['photo'];
             $path = $file->store('products', 'public');
             $data['photo']= $path;
+            Storage::disk('s3')->put($data['photo'], file_get_contents($request->photo));
         }
         
         $this->model->create($data);
@@ -88,6 +90,8 @@ class ProductController extends Controller
             $file = $request['photo'];
             $path = $file->store('products', 'public');
             $data['photo']= $path;
+            Storage::disk('s3')->put($data['photo'], file_get_contents($request->photo));
+
         }
         
         $product->update($data);
