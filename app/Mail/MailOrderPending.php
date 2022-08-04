@@ -27,7 +27,7 @@ class MailOrderPending extends Mailable
 public function build(Request $request)
     {     
         return $this->from('mail@example.com', 'Turmalina')
-            ->subject('Papelaria Turmalina')
+            ->subject('Papelaria Turmalina Compra Pendente')
             ->markdown('mails.order_pending')->with([
                 'pedido' => $request->order_id, 
                 'order' => $this->parameter, 
