@@ -158,25 +158,7 @@ class OrderController extends Controller
             return redirect()->route('cart.index');
         }
 
-        $this->orderProduct->where([
-            'id' => $dataForm['order_id']
-        ])->update([
-            'status' => 'PA'
-        ]);
-
-        $this->order->where([
-            'id' => $dataForm['order_id']
-        ])->update([
-            'status' => 'PA'
-        ]);
-
-        
-        $order = Order::where('id', $dataForm['order_id'])->first();
-        
-        Mail::to($user->email)->send(new MailOrderSuccess($order)); 
-
-        session()->flash('success', 'pagamento realizado com sucesso , Obrigado volte sempre!');
-        return redirect()->route('cart.orders');
+        return redirect()->route('cart.payment','dataForm');
     }
 
     public function showOrders()
@@ -203,5 +185,4 @@ class OrderController extends Controller
         
         return view('cart.payment');
     }
-
 }
