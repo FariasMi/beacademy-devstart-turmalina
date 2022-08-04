@@ -10,6 +10,7 @@ use App\Models\{
     Order,
     Product
 };
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
@@ -172,7 +173,7 @@ class OrderController extends Controller
         
         $order = Order::where('id', $dataForm['order_id'])->first();
         
-        Mail::to($user->email)->send(new MailOrderPending($order)); 
+        Mail::to($user->email)->send(new MailOrderSuccess($order)); 
 
         session()->flash('success', 'pagamento realizado com sucesso , Obrigado volte sempre!');
         return redirect()->route('cart.orders');
@@ -195,7 +196,11 @@ class OrderController extends Controller
        return redirect()->back()->with('warning', 'Produto removido');
     }
 
-    public function payment(){
+    public function payment($order_id){
+        $order = Order::where('id', $order_id)->first();
+        
+        Mail::to(Auth::user()->email)->send(new MailOrderPending($order)); 
+        
         return view('cart.payment');
     }
 

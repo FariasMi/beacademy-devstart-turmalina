@@ -103,7 +103,7 @@
                 <a class="btn-success mr-1" href="{{ route('home.index') }}">Continuar Comprando</a>
 
                 @if (auth()->user()->addresses->count())
-                <form action="{{ route('cart.payment')}}">
+                <form action="{{ route('cart.payment', $order->id)}}">
                     @else
                     <form action="{{ route('user.show', ["id"=>auth()->user()->id, "address_empty"=>1]) }}">
                         @endif

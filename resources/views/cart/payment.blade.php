@@ -117,7 +117,7 @@
                     </div>
 
 
-                    @foreach(auth()->user()->addresses->where('id', 3) as $address)
+                    @foreach(auth()->user()->addresses as $address)
 
                     <div class="col-span-full">
                         <label for="address" class="block text-sm font-medium text-gray-700">Rua</label>
