@@ -19,7 +19,7 @@ $amount = 0;
             @endphp
             <div class="mb-2">
                 <div class="w-full">
-                    <img src="{{ $product->products->photo }}" alt="{{ $product->products->name }}" class="w-48">
+                    <img src="{{ $image_url . $product->products->photo }}" alt="{{ $product->products->name }}" class="w-48">
                 </div>
 
                 <h4>Produto: <strong>{{ $product->products->name }}</strong></h4>

@@ -5,6 +5,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\URL;
 
 class MailOrderSuccess extends Mailable
 {
@@ -27,6 +28,10 @@ public function build(Request $request)
     {     
         return $this->from('mail@example.com', 'Turmalina')
             ->subject('Papelaria Turmalina')
-            ->markdown('mails.order_success')->with(['pedido' => $request->order_id, 'order' => $this->parameter]);
+            ->markdown('mails.order_success')->with([
+                'pedido' => $request->order_id, 
+                'order' => $this->parameter, 
+                'image_url'=> "https://turmalina-devstart.s3.amazonaws.com/",
+                'url'=> URL::to('/cart')]);
     }
 }

@@ -10,6 +10,9 @@ $sale = "Valor de Venda:";
 $parameter = "hidden";
 $sale = "Valor:";
 }
+
+$url = config('app.env') === 'production' ? "https://turmalina-devstart.s3.amazonaws.com/" . $product->photo : URL::to('/storage/' . $product->photo);;
+
 @endphp
 
 <div class="grid mx-64">
@@ -22,7 +25,7 @@ $sale = "Valor:";
         <div class="bg-white shadow-lg relative flex justify-center rounded-lg w-full">
             <div class="my-6 mx-auto relative max-w-sm">
                 <h1 class="font-bold my-2 text-indigo-500 text-center">{{$product->name}}</h1>
-                <img src="{{ asset('storage/'.$product->photo) }}">
+                <img src="{{ $url }}">
 
             </div>
             <div class="border-2-2 absolute h-full border border-gray-700 border-opacity-20"></div>

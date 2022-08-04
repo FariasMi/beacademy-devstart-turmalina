@@ -1,6 +1,10 @@
+@php
+$url = config('app.env') === 'production' ? "https://turmalina-devstart.s3.amazonaws.com/" . $product->photo : URL::to('/storage/' . $product->photo);;
+@endphp
+
 <div class="w-[17.5rem] shadow-sm border border-slate-700 rounded-lg shadow-m grid justify-items-center">
     <div class="mb-2">
-        <img class="rounded-xl w-48 h-48 max-w-min object-cover" src={{ asset("storage/{$product->photo}") }} alt="product image">
+        <img class="rounded-xl w-48 h-48 max-w-min object-cover" src="{{ $url }}" alt="product image">
     </div>
     <div class="w-full pb-2 rounded-md bg-slate-700">
         <div>

@@ -31,6 +31,8 @@ public function build(Request $request)
             ->markdown('mails.order_pending')->with([
                 'pedido' => $request->order_id, 
                 'order' => $this->parameter, 
-                'url'=> URL::to('/cart')]);
+                'image_url'=> "https://turmalina-devstart.s3.amazonaws.com/",
+                'url'=> URL::to('/cart')],
+            );
     }
 }
