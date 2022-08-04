@@ -117,8 +117,6 @@
                     </div>
 
 
-                    @foreach(auth()->user()->addresses as $address)
-
                     <div class="col-span-full">
                         <label for="address" class="block text-sm font-medium text-gray-700">Rua</label>
                         <div class="mt-1">
@@ -164,7 +162,6 @@
                             <input id="address_country" value="" type="text" name="address_country" id="address_country" class="block w-full bg-slate-200 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" disabled required>
                         </div>
                     </div>
-                    @endforeach
                 </div>
 
                 <input type="hidden" name="transaction_type" value="ticket" />
