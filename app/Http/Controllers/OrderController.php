@@ -154,20 +154,8 @@ class OrderController extends Controller
             return redirect()->route('cart.index');
         }
 
-        $this->orderProduct->where([
-            'id' => $dataForm['order_id']
-        ])->update([
-            'status' => 'PA'
-        ]);
-
-        $this->order->where([
-            'id' => $dataForm['order_id']
-        ])->update([
-            'status' => 'PA'
-        ]);
-
-        session()->flash('success', 'pagamento realizado com sucesso , Obrigado volte sempre!');
-        return redirect()->route('cart.orders');
+        // alexandre coloca aqui
+        return redirect()->view('view DE CONFIRMAÇAO DE DADOS','dataForm');
     }
 
     public function showOrders()
