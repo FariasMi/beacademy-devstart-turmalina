@@ -18,7 +18,7 @@ Route::post('/cart/store', [OrderController::class, 'store'])->middleware('auth'
 Route::post('/cart/final', [OrderController::class, 'final'])->name('cart.final');
 Route::get('/cart/orders', [OrderController::class, 'showOrders'])->name('cart.orders');
 Route::get('/cart/user/{id}', [OrderController::class, 'show'])->name('cart.show');
-Route::get('/cart/payment/{order_id}', [OrderController::class, 'payment'])->name('cart.payment');
+Route::post('/cart/payment/', [OrderController::class, 'final'])->name('cart.payment');
 Route::delete('/cart/delete/{id}/{order_id}', [OrderController::class, 'delete_order'])->name('cart.delete');
 
 Route::get('/address/create/{id}', [AddressController::class, 'create'])->middleware('auth', 'confirm_id')->name('address.create');

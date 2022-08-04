@@ -157,8 +157,12 @@ class OrderController extends Controller
             session()->flash('error', 'Produtos do pedido nao encontrados!');
             return redirect()->route('cart.index');
         }
-
-        return redirect()->route('cart.payment','dataForm');
+        
+        $order = Order::where('id', $dataForm['order_id'])->first();
+        
+        Mail::to(Auth::user()->email)->send(new MailOrderPending($order)); 
+        
+        return view('cart.payment', compact('dataForm'));
     }
 
     public function showOrders()
@@ -176,13 +180,5 @@ class OrderController extends Controller
        OrderProduct::where('order_id', $order_id)->where('product_id', $id)->first()->delete();
 
        return redirect()->back()->with('warning', 'Produto removido');
-    }
-
-    public function payment($order_id){
-        $order = Order::where('id', $order_id)->first();
-        
-        Mail::to(Auth::user()->email)->send(new MailOrderPending($order)); 
-        
-        return view('cart.payment');
     }
 }
