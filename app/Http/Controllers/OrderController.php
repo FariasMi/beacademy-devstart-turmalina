@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\MailOrderPending;
+use App\Mail\MailOrderSuccess;
 use Illuminate\Http\Request;
 use App\Models\{
     OrderProduct,
     Order,
     Product
 };
+use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
@@ -69,7 +72,7 @@ class OrderController extends Controller
         ]);
 
         if($createOrderProduct){
-            session()->flash('success', 'item adicionado');
+            session()->flash('success', 'Produto adicionado com sucesso!');
             return redirect()->route('cart.index');
         }
     }
@@ -142,10 +145,10 @@ class OrderController extends Controller
     public function final(Request $request)
     {
         $dataForm = $request->all();
-        $user = auth()->user()->id;
+        $user = auth()->user();
         $checkOrder = $this->order->where([
             'id' => $dataForm['order_id'],
-            'user_id' => $user,
+            'user_id' => $user->id,
             'status' => 'RE'
         ]);
 
@@ -166,6 +169,11 @@ class OrderController extends Controller
             'status' => 'PA'
         ]);
 
+        
+        $order = Order::where('id', $dataForm['order_id'])->first();
+        
+        Mail::to($user->email)->send(new MailOrderPending($order)); 
+
         session()->flash('success', 'pagamento realizado com sucesso , Obrigado volte sempre!');
         return redirect()->route('cart.orders');
     }
@@ -184,6 +192,11 @@ class OrderController extends Controller
     public function delete_order($id, $order_id){
        OrderProduct::where('order_id', $order_id)->where('product_id', $id)->first()->delete();
 
-       return redirect()->back();
+       return redirect()->back()->with('warning', 'Produto removido');
     }
+
+    public function payment(){
+        return view('cart.payment');
+    }
+
 }
