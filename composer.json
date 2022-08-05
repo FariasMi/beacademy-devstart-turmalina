@@ -5,6 +5,7 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "require": {
+        "ext-gd": "*",
         "php": "^8.0.2",
         "dompdf/dompdf": "^2.0",
         "geekcom/validator-docs": "^3.7",
