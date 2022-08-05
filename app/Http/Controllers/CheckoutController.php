@@ -80,7 +80,7 @@ class CheckoutController extends Controller
         $dompdf->render();
         $dompdf->stream();
 
-        return redirect()->route('home.index')->with('donwload', 'Boleto gerado com sucesso!');
+        return redirect()->route('home.index')->with('success', 'Boleto gerado com sucesso!');
     }
 
     public function card(Request $request)
@@ -124,7 +124,7 @@ class CheckoutController extends Controller
         }
         
 
-        session()->flash('success', 'pagamento realizado com sucesso , Obrigado volte sempre!');
+        session()->flash('success', 'pagamento realizado com sucesso , Obrigado!');
         return redirect()->route('home.index');
 
     }
