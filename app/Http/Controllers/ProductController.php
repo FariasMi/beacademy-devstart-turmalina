@@ -103,7 +103,8 @@ class ProductController extends Controller
     {
         if(!$products = $this->model->find($id))
         return redirect()->route('product.index');
-
+        
+        Storage::disk("s3")->delete($products->photo);
         $products->delete();
 
         return redirect()->route('product.index')->with('success', "Produto excluído com sucesso!");
